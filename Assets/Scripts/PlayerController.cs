@@ -1,30 +1,27 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public enum MoveState
     {
-        Idle,
-        Moving,
+        Idle   = 0,
+        Moving = 1,
     }
 
     public enum Direction
     {
-        Left,
-        Right,
+        Left  = 0,
+        Right = 1,
     }
 
-    [SerializeField]
-    private float m_Speed = 1f;
+    [SerializeField] private float m_Speed = 1f;
+    [SerializeField] private float m_CollisionDistance = 0.12f;
+    [SerializeField] private Object m_Stage;
+    [SerializeField] private LayerMask m_WallLayer;
+    [SerializeField] private Animator m_Animator;
 
-    [SerializeField]
-    private Object m_Stage;
-
-    [SerializeField]
-    private LayerMask m_WallLayer;
-
-    [SerializeField]
-    private float m_CollisionDistance = 0.12f;
+    private static readonly int MoveStateHash = Animator.StringToHash("MoveState");
+    private static readonly int FacingDirectionHash = Animator.StringToHash("FacingDirection");
 
     private MoveState m_MoveState = MoveState.Idle;
     private Direction m_FacingDirection = Direction.Right;
@@ -33,6 +30,14 @@ public class Player : MonoBehaviour
     public Vector2 GetDirectionVector()
     {
         return m_FacingDirection == Direction.Left ? Vector2.left : Vector2.right;
+    }
+
+    private void Start()
+    {
+        if (m_Animator == null)
+        {
+            m_Animator = GetComponent<Animator>();
+        }
     }
 
     private void Update()
@@ -70,6 +75,9 @@ public class Player : MonoBehaviour
             {
                 m_MoveState = MoveState.Moving;
                 m_FacingDirection = bRight ? Direction.Right : Direction.Left;
+
+                m_Animator.SetInteger(MoveStateHash, (int)m_MoveState);
+                m_Animator.SetInteger(FacingDirectionHash, (int)m_FacingDirection);
             }
             break;
         case MoveState.Moving:
@@ -77,11 +85,13 @@ public class Player : MonoBehaviour
             if (bLeftDown && Facing(Direction.Right) || bRightDown && Facing(Direction.Left))
             {
                 m_FacingDirection = bRightDown ? Direction.Right : Direction.Left;
+                m_Animator.SetInteger(FacingDirectionHash, (int)m_FacingDirection);
             }
             // Stop
             if (!bLeft && Facing(Direction.Left) || !bRight && Facing(Direction.Right))
             {
                 m_MoveState = MoveState.Idle;
+                m_Animator.SetInteger(MoveStateHash, (int)m_MoveState);
             }
             break;
         }
