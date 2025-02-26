@@ -29,17 +29,10 @@ public class Player : MonoBehaviour
     private MoveState m_MoveState = MoveState.Idle;
     private Direction m_FacingDirection = Direction.Right;
 
-    private bool Facing(Direction i_Direction)
-    {
-        return m_FacingDirection == i_Direction;
-    }
 
-    private bool IsBlocked(Direction i_Direction)
+    public Vector2 GetDirectionVector()
     {
-        Vector2 direction = i_Direction == Direction.Left ? Vector2.left : Vector2.right;
-        // Do not cast rays from player's feet, otherwise they will catch the floor
-        Vector2 rayOrigin = (Vector2)transform.position + Vector2.up * 0.1f;
-        return Physics2D.Raycast(rayOrigin, direction, m_CollisionDistance, m_WallLayer);
+        return m_FacingDirection == Direction.Left ? Vector2.left : Vector2.right;
     }
 
     private void Update()
@@ -49,6 +42,18 @@ public class Player : MonoBehaviour
         {
             Move();
         }
+    }
+
+    private bool Facing(Direction i_Direction)
+    {
+        return m_FacingDirection == i_Direction;
+    }
+
+    private bool IsBlocked(Direction i_Direction)
+    {
+        // Do not cast rays from player's feet, otherwise they will catch the floor
+        Vector2 rayOrigin = (Vector2)transform.position + Vector2.up * 0.1f;
+        return Physics2D.Raycast(rayOrigin, GetDirectionVector(), m_CollisionDistance, m_WallLayer);
     }
 
     private void HandleInput()
@@ -91,7 +96,6 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        Vector2 direction = m_FacingDirection == Direction.Left ? Vector2.left : Vector2.right;
-        transform.position += (Vector3)direction * m_Speed * Time.deltaTime;
+        transform.position += (Vector3)GetDirectionVector() * m_Speed * Time.deltaTime;
     }
 }
