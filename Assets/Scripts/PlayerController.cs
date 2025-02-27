@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
         Right = 1,
     }
 
-    [SerializeField] private float m_Speed = 1f;
+    [SerializeField] private float m_Speed = 1.3f;
     [SerializeField] private float m_CollisionDistance = 0.12f;
     [SerializeField] private Object m_Stage;
     [SerializeField] private LayerMask m_WallLayer;

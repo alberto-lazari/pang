@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MediumBall : BouncingBall
 {
-    [SerializeField] private float m_TargetHeight = 1.4f;
+    [SerializeField] private float m_BounceMultiplier = 0.75f;
 
-    protected override float TargetHeight => m_TargetHeight;
+    protected override float BounceMultiplier => m_BounceMultiplier;
 }
