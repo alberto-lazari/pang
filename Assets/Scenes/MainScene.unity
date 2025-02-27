@@ -353,6 +353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Rigidbody: {fileID: 0}
+  m_Collider: {fileID: 0}
   m_HorizontalVelocity: 0.6
   m_TargetHeight: 1.4
 --- !u!212 &526605396
@@ -522,8 +523,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Rigidbody: {fileID: 0}
+  m_Collider: {fileID: 0}
   m_HorizontalVelocity: 0.6
-  m_TargetHeight: 0.9
+  m_TargetHeight: 0.95
 --- !u!212 &873264143
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -588,7 +590,7 @@ Transform:
   m_GameObject: {fileID: 873264139}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.9, z: 0}
+  m_LocalPosition: {x: 0, y: 0.95, z: 0}
   m_LocalScale: {x: 1, y: 1.142857, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -820,6 +822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Rigidbody: {fileID: 0}
+  m_Collider: {fileID: 0}
   m_HorizontalVelocity: 0.6
   m_TargetHeight: 0.55
 --- !u!212 &1921111571
@@ -952,6 +955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Rigidbody: {fileID: 1990049668}
+  m_Collider: {fileID: 0}
   m_HorizontalVelocity: 0.6
   m_TargetHeight: 1.9
 --- !u!212 &1990049670
