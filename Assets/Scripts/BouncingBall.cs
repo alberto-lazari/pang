@@ -2,13 +2,21 @@ using UnityEngine;
 
 public abstract class BouncingBall : MonoBehaviour
 {
-    [SerializeField]
-    private Rigidbody2D m_Rigidbody;
+    [SerializeField] protected Rigidbody2D m_Rigidbody;
+    [SerializeField] protected float m_HorizontalVelocity = 0.5f;
 
-    [SerializeField]
-    private float m_HorizontalVelocity = 0.5f;
+    protected abstract float TargetHeight { get; }
 
-    protected abstract float BounceVelocity { get; }
+
+    // Vertical velocity required to reach the specific target height point
+    protected virtual float BounceVelocity()
+    {
+        // Gravity might be scaled
+        float gravity = Mathf.Abs(Physics2D.gravity.y * m_Rigidbody.gravityScale);
+        // Y coordinates might be scaled as well
+        float height = TargetHeight / transform.localScale.y;
+        return Mathf.Sqrt(2 * gravity * height);
+    }
 
     protected virtual void Start()
     {
@@ -52,7 +60,7 @@ public abstract class BouncingBall : MonoBehaviour
     protected virtual void OnFloorCollision()
     {
         // Reset vertical velocity with static one
-        m_Rigidbody.linearVelocity = new Vector2(m_HorizontalVelocity, BounceVelocity);
+        m_Rigidbody.linearVelocity = new Vector2(m_HorizontalVelocity, BounceVelocity());
     }
 
     protected virtual void OnCeilingCollision()

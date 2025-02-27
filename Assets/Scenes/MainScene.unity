@@ -206,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.86, z: -2.492}
+  m_LocalPosition: {x: 0, y: 0.85, z: -2.49}
   m_LocalScale: {x: 1, y: 1.142857, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -328,7 +328,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0
-  m_GravityScale: 0.3
+  m_GravityScale: 0.4
   m_Material: {fileID: 6200000, guid: 341a072312efc43c7ae4bdce0546ff61, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Rigidbody: {fileID: 0}
   m_HorizontalVelocity: 0.6
-  m_BounceVelocity: 2.7
+  m_TargetHeight: 1.4
 --- !u!212 &526605396
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -418,8 +418,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 526605392}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.902, y: 1.059, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1.142857, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -497,7 +497,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0
-  m_GravityScale: 0.3
+  m_GravityScale: 0.4
   m_Material: {fileID: 6200000, guid: 341a072312efc43c7ae4bdce0546ff61, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -523,7 +523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Rigidbody: {fileID: 0}
   m_HorizontalVelocity: 0.6
-  m_BounceVelocity: 2.2
+  m_TargetHeight: 0.9
 --- !u!212 &873264143
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -588,7 +588,7 @@ Transform:
   m_GameObject: {fileID: 873264139}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.57, y: 1.0660001, z: 0}
+  m_LocalPosition: {x: 0, y: 0.9, z: 0}
   m_LocalScale: {x: 1, y: 1.142857, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -795,7 +795,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0
-  m_GravityScale: 0.3
+  m_GravityScale: 0.4
   m_Material: {fileID: 6200000, guid: 341a072312efc43c7ae4bdce0546ff61, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -821,7 +821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Rigidbody: {fileID: 0}
   m_HorizontalVelocity: 0.6
-  m_BounceVelocity: 1.7
+  m_TargetHeight: 0.55
 --- !u!212 &1921111571
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -886,7 +886,7 @@ Transform:
   m_GameObject: {fileID: 1921111567}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.319, y: 1.0660001, z: 0}
+  m_LocalPosition: {x: 0, y: 0.55, z: 0}
   m_LocalScale: {x: 1, y: 1.142857, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -927,7 +927,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0
-  m_GravityScale: 0.3
+  m_GravityScale: 0.4
   m_Material: {fileID: 6200000, guid: 341a072312efc43c7ae4bdce0546ff61, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -953,7 +953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Rigidbody: {fileID: 1990049668}
   m_HorizontalVelocity: 0.6
-  m_BounceVelocity: 3.1
+  m_TargetHeight: 1.9
 --- !u!212 &1990049670
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1018,7 +1018,7 @@ Transform:
   m_GameObject: {fileID: 1990049666}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.4, y: 1.044, z: 0}
+  m_LocalPosition: {x: 0, y: 1.9, z: 0}
   m_LocalScale: {x: 1, y: 1.142857, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1144,7 +1144,7 @@ Transform:
   m_GameObject: {fileID: 2023339739}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.08, z: 0}
+  m_LocalPosition: {x: 0, y: -0.09142857, z: 0}
   m_LocalScale: {x: 1, y: 1.142857, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
