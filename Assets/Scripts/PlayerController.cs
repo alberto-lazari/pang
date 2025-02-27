@@ -18,7 +18,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float m_CollisionDistance = 0.12f;
     [SerializeField] private Object m_Stage;
     [SerializeField] private LayerMask m_WallLayer;
-    [SerializeField] private Animator m_Animator;
+
+    private Animator m_Animator;
+    private SpriteRenderer m_SpriteRenderer;
 
     private static readonly int MoveStateHash = Animator.StringToHash("MoveState");
     private static readonly int FacingDirectionHash = Animator.StringToHash("FacingDirection");
@@ -38,11 +40,20 @@ public class PlayerController : MonoBehaviour
         {
             m_Animator = GetComponent<Animator>();
         }
+        if (m_SpriteRenderer == null)
+        {
+            m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        }
     }
 
     private void Update()
     {
         HandleInput();
+        UpdateAnimatorState();
+
+        // Flip sprite when facing left
+        m_SpriteRenderer.flipX = m_FacingDirection == Direction.Left;
+
         if (CanMove())
         {
             Move();
@@ -75,9 +86,6 @@ public class PlayerController : MonoBehaviour
             {
                 m_MoveState = MoveState.Moving;
                 m_FacingDirection = bRight ? Direction.Right : Direction.Left;
-
-                m_Animator.SetInteger(MoveStateHash, (int)m_MoveState);
-                m_Animator.SetInteger(FacingDirectionHash, (int)m_FacingDirection);
             }
             break;
         case MoveState.Moving:
@@ -85,16 +93,20 @@ public class PlayerController : MonoBehaviour
             if (bLeftDown && Facing(Direction.Right) || bRightDown && Facing(Direction.Left))
             {
                 m_FacingDirection = bRightDown ? Direction.Right : Direction.Left;
-                m_Animator.SetInteger(FacingDirectionHash, (int)m_FacingDirection);
             }
             // Stop
             if (!bLeft && Facing(Direction.Left) || !bRight && Facing(Direction.Right))
             {
                 m_MoveState = MoveState.Idle;
-                m_Animator.SetInteger(MoveStateHash, (int)m_MoveState);
             }
             break;
         }
+    }
+
+    private void UpdateAnimatorState()
+    {
+        m_Animator.SetInteger(MoveStateHash, (int)m_MoveState);
+        m_Animator.SetInteger(FacingDirectionHash, (int)m_FacingDirection);
     }
 
     private bool CanMove()

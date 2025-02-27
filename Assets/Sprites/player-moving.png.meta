@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 04979474cc7f14c3ab18467e9c00b6ce
+guid: 168deb11b03fd4dbebba3519b9d326d9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,177 +110,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ball-sprites_0
+      name: player-moving_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 0
-        width: 40
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67392ddba553f4acfb38cc8eba94d84c
-      internalID: 164222148
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ball-sprites_1
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7b6206b4aabba43aba20c0e102fb7e59
-      internalID: 1652937262
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ball-sprites_2
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 0
-        width: 24
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 479641f17503e44f18fdacaef215c98d
-      internalID: 1365605681
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ball-sprites_3
-      rect:
-        serializedVersion: 2
-        x: 128
+        x: 0
         y: 0
         width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 061d4f1ca475947dc83166ebab09cd0c
-      internalID: -1803999764
+      spriteID: 514921cac6cf543198154202994dde15
+      internalID: 401279753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ball-sprites_4
+      name: player-moving_1
       rect:
         serializedVersion: 2
-        x: 164
+        x: 34
         y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 588b451f8b6984fa39e14615f8c5f49a
-      internalID: 167234225
+      spriteID: 9e5d52c58a24b4454ad8ca2365ed84e9
+      internalID: -1675489521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ball-sprites_5
+      name: player-moving_2
       rect:
         serializedVersion: 2
-        x: 184
+        x: 68
         y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 959730d695ece484da41b6b7487adfb0
-      internalID: 1172865801
+      spriteID: aaa2c25f66dfe4c7289e3703f4f96bd3
+      internalID: 350066609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ball-sprites_6
+      name: player-moving_3
       rect:
         serializedVersion: 2
-        x: 204
+        x: 102
         y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ac861f0d4cca4748a25005d84b50516
-      internalID: 1866099165
+      spriteID: 088f8cca8ebf34c939dd4b3823302478
+      internalID: 699442605
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ball-sprites_7
+      name: player-moving_4
       rect:
         serializedVersion: 2
-        x: 216
+        x: 136
         y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d70a4cc4cdf2042159cef8d49b9e31df
-      internalID: 500610813
+      spriteID: 418241d60b8914325befdea4aa8d7e59
+      internalID: -1336484745
       vertices: []
       indices: 
       edges: []
@@ -289,7 +223,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 3ac4c22213ea141b1af6757845688d86
+    spriteID: 625d727e92efb4a5a8f844cfc75223ae
     internalID: 0
     vertices: []
     indices: 
@@ -299,14 +233,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ball-sprites_0: 164222148
-      ball-sprites_1: 1652937262
-      ball-sprites_2: 1365605681
-      ball-sprites_3: -1803999764
-      ball-sprites_4: 167234225
-      ball-sprites_5: 1172865801
-      ball-sprites_6: 1866099165
-      ball-sprites_7: 500610813
+      player-moving_0: 401279753
+      player-moving_1: -1675489521
+      player-moving_2: 350066609
+      player-moving_3: 699442605
+      player-moving_4: -1336484745
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
