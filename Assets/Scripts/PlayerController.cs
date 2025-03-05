@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
         m_Animator.SetFloat(HorizontalInputHash, horizontalInput);
 
         // Make sprite face the right direction
-        if (horizontalInput < 0.01f) m_SpriteRenderer.flipX = true;
+        if (horizontalInput < -0.01f) m_SpriteRenderer.flipX = true;
         else if (horizontalInput > 0.01f) m_SpriteRenderer.flipX = false;
     }
 }
