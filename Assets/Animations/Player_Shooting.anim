@@ -22,6 +22,8 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 1964905749, guid: e9f29eab570c24f3fa8b315acf26c58e, type: 3}
+    - time: 0.5
+      value: {fileID: 295710488, guid: e9f29eab570c24f3fa8b315acf26c58e, type: 3}
     - time: 1
       value: {fileID: 1964905749, guid: e9f29eab570c24f3fa8b315acf26c58e, type: 3}
     attribute: m_Sprite
@@ -47,6 +49,7 @@ AnimationClip:
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
     - {fileID: 1964905749, guid: e9f29eab570c24f3fa8b315acf26c58e, type: 3}
+    - {fileID: 295710488, guid: e9f29eab570c24f3fa8b315acf26c58e, type: 3}
     - {fileID: 1964905749, guid: e9f29eab570c24f3fa8b315acf26c58e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
@@ -72,4 +75,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1
+    functionName: OnShootEnd
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
