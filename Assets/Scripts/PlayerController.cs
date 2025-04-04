@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Rigidbody2D m_Rigidbody;
     [SerializeField] private Animator m_Animator;
     [SerializeField] private SpriteRenderer m_SpriteRenderer;
+    [SerializeField] private Weapon m_Weapon;
 
     private static readonly int HorizontalInputHash = Animator.StringToHash("HorizontalInput");
     private static readonly int IsShootingHash = Animator.StringToHash("IsShooting");
@@ -23,10 +24,14 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
-        if (!m_IsShooting) m_IsShooting = Input.GetKeyDown(KeyCode.S);
 
-        if (m_IsShooting) OnShoot();
-        else Move(horizontalInput);
+        if (!m_IsShooting)
+        {
+            // Wait shoot animation to end before shooting again
+            if (Input.GetKeyDown(KeyCode.S)) OnShoot();
+            // Do not move while shooting
+            else Move(horizontalInput);
+        }
     }
 
     private void Move(float i_InputSpeed)
@@ -44,11 +49,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnShoot()
     {
+        m_IsShooting = true;
+        m_Animator.SetBool(IsShootingHash, m_IsShooting);
+
         // Stop moving animation
         m_Animator.SetFloat(HorizontalInputHash, 0f);
         m_Rigidbody.linearVelocityX = 0f;
 
-        m_Animator.SetBool(IsShootingHash, m_IsShooting);
+        m_Weapon.Shoot();
     }
 
     private void OnShootEnd()
