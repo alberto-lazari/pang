@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6258986806213201544}
   - component: {fileID: 6371990526666680131}
-  - component: {fileID: 2012026038700343166}
+  - component: {fileID: -8785362179553788449}
   - component: {fileID: 1519535724366688622}
   - component: {fileID: 4056250299605373008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BigBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2012026038700343166
+--- !u!114 &-8785362179553788449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,14 +99,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2538254891908424610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3b41da35549144e3a87609552469b97, type: 3}
+  m_Script: {fileID: 11500000, guid: 3dd8022f47c5e46748f2e986b5e462ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SmallerBall: {fileID: 2538254891908424610, guid: 98fc6ee6445b0490682862c10ea0e356, type: 3}
+  m_BounceMultiplier: 1
+  m_MaxBounce: 2
+  m_HorizontalVelocity: 0.6
+  m_PopVerticalVelocity: 1
   m_Rigidbody: {fileID: 1519535724366688622}
   m_Collider: {fileID: 4056250299605373008}
-  m_HorizontalVelocity: 0.6
-  m_MaxBounce: 2
-  m_BounceMultiplier: 1
 --- !u!50 &1519535724366688622
 Rigidbody2D:
   serializedVersion: 5
@@ -129,7 +131,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -150,7 +152,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 320
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
