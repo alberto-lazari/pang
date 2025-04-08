@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BouncingBall : MonoBehaviour
+public class BouncingBubble : MonoBehaviour
 {
     [SerializeField] private GameObject m_SmallerBall = null;
 

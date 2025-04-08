@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Beam: {fileID: 940723777566215703, guid: 986fcb229972043f6a17612338843f76, type: 3}
---- !u!1001 &1677711285
+--- !u!1001 &1046395547
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -483,7 +483,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2538254891908424610, guid: 639f504446d244e21b32923fce73b37a, type: 3}
       propertyPath: m_Name
-      value: BigBall
+      value: BigBubble
       objectReference: {fileID: 0}
     - target: {fileID: 6258986806213201544, guid: 639f504446d244e21b32923fce73b37a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -708,4 +708,4 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 2023339741}
   - {fileID: 922500035}
-  - {fileID: 1677711285}
+  - {fileID: 1046395547}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1519535724366688622}
   - component: {fileID: 4056250299605373008}
   m_Layer: 8
-  m_Name: SmallBall
+  m_Name: MediumBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1253909043, guid: 828ef007a0a0a467b9846377c3f65193, type: 3}
+  m_Sprite: {fileID: -1455277408, guid: 828ef007a0a0a467b9846377c3f65193, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,14 +99,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2538254891908424610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3dd8022f47c5e46748f2e986b5e462ce, type: 3}
+  m_Script: {fileID: 11500000, guid: 729ae6d73671c484eb4b103d48023f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SmallerBall: {fileID: 2538254891908424610, guid: 2e42bfba137d24564821799e3a70457d, type: 3}
-  m_BounceMultiplier: 0.5
+  m_SmallerBall: {fileID: 2538254891908424610, guid: 41a1ee67975dc465794a365ae501cf69, type: 3}
+  m_BounceMultiplier: 0.75
   m_MaxBounce: 2
   m_HorizontalVelocity: 0.6
   m_PopVerticalVelocity: 1
+  m_ExplodeAnimationDuration: 0.2
   m_Rigidbody: {fileID: 1519535724366688622}
   m_Collider: {fileID: 4056250299605373008}
 --- !u!50 &1519535724366688622
@@ -171,5 +172,5 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.16, y: 0.14}
+  m_Size: {x: 0.32, y: 0.26}
   m_Direction: 0
