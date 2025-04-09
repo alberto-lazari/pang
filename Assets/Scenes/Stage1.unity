@@ -474,6 +474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Controller: {fileID: 922500040}
+  m_Animator: {fileID: 922500037}
 --- !u!1 &982838562
 GameObject:
   m_ObjectHideFlags: 0
