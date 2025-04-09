@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6258986806213201544}
   - component: {fileID: 6371990526666680131}
-  - component: {fileID: 2012026038700343166}
+  - component: {fileID: -8785362179553788449}
   - component: {fileID: 1519535724366688622}
   - component: {fileID: 4056250299605373008}
-  m_Layer: 0
-  m_Name: BigBall
+  - component: {fileID: -2431968106174622421}
+  m_Layer: 8
+  m_Name: TinyBubble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1032070277, guid: 828ef007a0a0a467b9846377c3f65193, type: 3}
+  m_Sprite: {fileID: -937016627, guid: 828ef007a0a0a467b9846377c3f65193, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -90,7 +91,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2012026038700343166
+--- !u!114 &-8785362179553788449
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,14 +100,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2538254891908424610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3b41da35549144e3a87609552469b97, type: 3}
+  m_Script: {fileID: 11500000, guid: 729ae6d73671c484eb4b103d48023f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SmallerBall: {fileID: 0}
+  m_BounceMultiplier: 0.27
+  m_MaxBounce: 2
+  m_HorizontalVelocity: 0.6
+  m_PopVerticalVelocity: 1
   m_Rigidbody: {fileID: 1519535724366688622}
   m_Collider: {fileID: 4056250299605373008}
-  m_HorizontalVelocity: 0.6
-  m_MaxBounce: 2
-  m_BounceMultiplier: 1
+  m_Animator: {fileID: 0}
 --- !u!50 &1519535724366688622
 Rigidbody2D:
   serializedVersion: 5
@@ -129,7 +133,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -150,7 +154,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 320
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -169,5 +173,27 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.48, y: 0.4}
-  m_Direction: 1
+  m_Size: {x: 0.08, y: 0.07}
+  m_Direction: 0
+--- !u!95 &-2431968106174622421
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2538254891908424610}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d939aa8d0b2ed4267a18542e301de810, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

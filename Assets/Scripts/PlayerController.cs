@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private static readonly int HorizontalInputHash = Animator.StringToHash("HorizontalInput");
+    private static readonly int ShootTriggerHash = Animator.StringToHash("Shoot");
+
     [SerializeField] private float m_PlayerSpeed = 1.5f;
     [SerializeField] private Rigidbody2D m_Rigidbody;
     [SerializeField] private Animator m_Animator;
     [SerializeField] private SpriteRenderer m_SpriteRenderer;
     [SerializeField] private Weapon m_Weapon;
-
-    private static readonly int HorizontalInputHash = Animator.StringToHash("HorizontalInput");
-    private static readonly int IsShootingHash = Animator.StringToHash("IsShooting");
 
     private bool m_IsShooting = false;
 
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     private void OnShoot()
     {
         m_IsShooting = true;
-        m_Animator.SetBool(IsShootingHash, m_IsShooting);
+        m_Animator.SetTrigger(ShootTriggerHash);
 
         // Stop moving animation
         m_Animator.SetFloat(HorizontalInputHash, 0f);
@@ -62,6 +62,5 @@ public class PlayerController : MonoBehaviour
     private void OnShootEnd()
     {
         m_IsShooting = false;
-        m_Animator.SetBool(IsShootingHash, m_IsShooting);
     }
 }

@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class Beam : MonoBehaviour
 {
+    private static readonly int HitHash = Animator.StringToHash("Hit");
+
     [SerializeField] private float m_Speed = 2.5f;
     [SerializeField] private Rigidbody2D m_Rigidbody;
     [SerializeField] private Animator m_Animator;
 
-    private static readonly int HitHash = Animator.StringToHash("Hit");
+    private int m_StageLayer;
 
     public void Shoot()
     {
@@ -19,19 +21,34 @@ public class Beam : MonoBehaviour
     {
         if (m_Rigidbody == null) m_Rigidbody = GetComponent<Rigidbody2D>();
         if (m_Animator == null) m_Animator = GetComponent<Animator>();
+        m_StageLayer = LayerMask.NameToLayer("Stage");
     }
 
     private void OnCollisionEnter2D(Collision2D i_Collision)
     {
-        float contactY = i_Collision.GetContact(0).point.y;
+        int layer = i_Collision.gameObject.layer;
+        if (layer == m_StageLayer) OnStageHit(i_Collision.GetContact(0).point.y);
+        else
+        {
+            gameObject.SetActive(false);
+            Destroy();
+        }
+    }
+
+    private void OnStageHit(float i_ContactY)
+    {
         // Place beam on the contact point
         transform.position = new Vector3(
             transform.position.x,
-            contactY,
+            i_ContactY,
             transform.position.z
         );
         m_Rigidbody.linearVelocityY = 0f;
         m_Animator.SetBool(HitHash, true);
-        Destroy(gameObject, .2f);
+    }
+
+    private void Destroy()
+    {
+        Destroy(gameObject);
     }
 }
