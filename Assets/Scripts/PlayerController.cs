@@ -21,6 +21,12 @@ public class PlayerController : MonoBehaviour
         if (m_SpriteRenderer == null) m_SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    private void OnDisable()
+    {
+        // Stop moving when disabling the controller component
+        Halt();
+    }
+
     private void Update()
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -33,6 +39,7 @@ public class PlayerController : MonoBehaviour
             else Move(horizontalInput);
         }
     }
+
 
     private void Move(float i_InputSpeed)
     {
@@ -47,15 +54,18 @@ public class PlayerController : MonoBehaviour
         else if (i_InputSpeed > 0.01f) m_SpriteRenderer.flipX = false;
     }
 
-    private void OnShoot()
+    private void Halt()
     {
-        m_IsShooting = true;
-        m_Animator.SetTrigger(ShootTriggerHash);
-
         // Stop moving animation
         m_Animator.SetFloat(HorizontalInputHash, 0f);
         m_Rigidbody.linearVelocityX = 0f;
+    }
 
+    private void OnShoot()
+    {
+        Halt();
+        m_IsShooting = true;
+        m_Animator.SetTrigger(ShootTriggerHash);
         m_Weapon.Shoot();
     }
 

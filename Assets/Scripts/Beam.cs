@@ -8,8 +8,6 @@ public class Beam : MonoBehaviour
     [SerializeField] private Rigidbody2D m_Rigidbody;
     [SerializeField] private Animator m_Animator;
 
-    private int m_StageLayer;
-
     public void Shoot()
     {
         gameObject.SetActive(true);
@@ -21,7 +19,6 @@ public class Beam : MonoBehaviour
     {
         if (m_Rigidbody == null) m_Rigidbody = GetComponent<Rigidbody2D>();
         if (m_Animator == null) m_Animator = GetComponent<Animator>();
-        m_StageLayer = LayerMask.NameToLayer("Stage");
     }
 
     private void OnCollisionEnter2D(Collision2D i_Collision)
