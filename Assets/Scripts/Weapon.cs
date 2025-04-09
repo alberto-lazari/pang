@@ -2,16 +2,32 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [SerializeField] private WeaponHolder m_WeaponHolder;
+    [SerializeField] private GameObject m_Player;
+    [SerializeField] private ShootFlash m_ShootFlash;
+
+    private float? m_PlayerHeight;
 
     protected virtual void Awake()
     {
-        if (m_WeaponHolder == null) m_WeaponHolder = transform.parent
-            .GetComponent<WeaponHolder>();
+        if (m_Player == null) m_Player = transform.parent.gameObject;
+        if (m_ShootFlash == null) Debug.LogError("Weapon holder not assigned");
+
+        m_PlayerHeight = m_Player.GetComponent<SpriteRenderer>()
+            ?.bounds.size.y;
+        if (m_PlayerHeight == null)
+            Debug.LogError("Weapon needs a player with a sprite renderer");
+
+        // Place weapon above player
+        transform.position = m_Player.transform.position
+            + Vector3.up * (float)m_PlayerHeight;
     }
 
     public virtual void Shoot()
     {
-        m_WeaponHolder.OnShoot();
+        if (m_ShootFlash == null || m_PlayerHeight == null) return;
+
+        m_ShootFlash.transform.position = m_Player.transform.position
+            + Vector3.up * (float)m_PlayerHeight;
+        m_ShootFlash.OnShoot();
     }
 }
