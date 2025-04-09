@@ -85,6 +85,9 @@ public class BouncingBubble : MonoBehaviour
             SpawnSmallerClone(m_HorizontalVelocity);
             SpawnSmallerClone(-m_HorizontalVelocity);
         }
+
+        // Prevent repeating the explosion for the same object
+        m_Collider.enabled = false;
     }
 
     private void OnExploded()
