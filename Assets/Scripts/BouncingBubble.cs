@@ -9,7 +9,6 @@ public class BouncingBubble : MonoBehaviour
 
     [SerializeField] private float m_HorizontalVelocity = 0.6f;
     [SerializeField] private float m_PopVerticalVelocity = 1f;
-    [SerializeField] private float m_ExplodeAnimationDuration = 0.2f;
 
     [SerializeField] private Rigidbody2D m_Rigidbody;
     [SerializeField] private CapsuleCollider2D m_Collider;
@@ -75,7 +74,7 @@ public class BouncingBubble : MonoBehaviour
         // TODO: Start explosion animation
 
         // Destroy the current ball on animation end
-        Destroy(gameObject, m_ExplodeAnimationDuration);
+        Destroy(gameObject);
 
         // Spawn children only if not the smallest ball type
         if (m_SmallerBall != null)

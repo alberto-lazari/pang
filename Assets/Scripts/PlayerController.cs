@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Weapon m_Weapon;
 
     private static readonly int HorizontalInputHash = Animator.StringToHash("HorizontalInput");
-    private static readonly int IsShootingHash = Animator.StringToHash("IsShooting");
+    private static readonly int ShootTriggerHash = Animator.StringToHash("Shoot");
 
     private bool m_IsShooting = false;
 
@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     private void OnShoot()
     {
         m_IsShooting = true;
-        m_Animator.SetBool(IsShootingHash, m_IsShooting);
+        m_Animator.SetTrigger(ShootTriggerHash);
 
         // Stop moving animation
         m_Animator.SetFloat(HorizontalInputHash, 0f);
@@ -62,6 +62,5 @@ public class PlayerController : MonoBehaviour
     private void OnShootEnd()
     {
         m_IsShooting = false;
-        m_Animator.SetBool(IsShootingHash, m_IsShooting);
     }
 }

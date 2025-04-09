@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -8785362179553788449}
   - component: {fileID: 1519535724366688622}
   - component: {fileID: 4056250299605373008}
+  - component: {fileID: 5013644304251262234}
   m_Layer: 8
   m_Name: BigBubble
   m_TagString: Untagged
@@ -174,3 +175,25 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.48, y: 0.4}
   m_Direction: 1
+--- !u!95 &5013644304251262234
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2538254891908424610}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

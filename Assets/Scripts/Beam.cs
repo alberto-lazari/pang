@@ -3,7 +3,6 @@ using UnityEngine;
 public class Beam : MonoBehaviour
 {
     [SerializeField] private float m_Speed = 2.5f;
-    [SerializeField] private float m_HitAnimationDuration = 0.2f;
     [SerializeField] private Rigidbody2D m_Rigidbody;
     [SerializeField] private Animator m_Animator;
 
@@ -32,7 +31,7 @@ public class Beam : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
-            Destroy(gameObject);
+            Destroy();
         }
     }
 
@@ -46,6 +45,10 @@ public class Beam : MonoBehaviour
         );
         m_Rigidbody.linearVelocityY = 0f;
         m_Animator.SetBool(HitHash, true);
-        Destroy(gameObject, m_HitAnimationDuration);
+    }
+
+    private void Destroy()
+    {
+        Destroy(gameObject);
     }
 }
