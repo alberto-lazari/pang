@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private bool m_IsShooting = false;
 
 
-    private void Start()
+    private void Awake()
     {
         if (m_Rigidbody == null) m_Rigidbody = GetComponent<Rigidbody2D>();
         if (m_Animator == null) m_Animator = GetComponent<Animator>();

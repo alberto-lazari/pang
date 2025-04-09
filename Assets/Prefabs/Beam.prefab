@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3382618534773786435}
   - component: {fileID: 7444469554893390663}
   - component: {fileID: 376282123100045155}
+  - component: {fileID: 8887200978729210800}
   - component: {fileID: 940723777566215703}
   - component: {fileID: 7095039332909306276}
   m_Layer: 7
@@ -134,7 +135,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 503
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -164,6 +165,52 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.16, y: 0.09}
   m_EdgeRadius: 0
+--- !u!61 &8887200978729210800
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1697054421335651308}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 255
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: -0.045}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 1}
+    oldSize: {x: 0.16, y: 0.09}
+    newSize: {x: 0.16, y: 0.09}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.16, y: 0.09}
+  m_EdgeRadius: 0
 --- !u!114 &940723777566215703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +224,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Speed: 2.5
-  m_HitAnimationDuration: 0.2
   m_Rigidbody: {fileID: 7444469554893390663}
   m_Animator: {fileID: 7095039332909306276}
 --- !u!95 &7095039332909306276
