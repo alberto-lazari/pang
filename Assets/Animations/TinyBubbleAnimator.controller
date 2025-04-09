@@ -33,7 +33,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BigBubbleAnimator
+  m_Name: TinyBubbleAnimator
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Exploding
@@ -100,7 +100,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b5abdc4bc68454d32988723afe0e2a57, type: 2}
+  m_Motion: {fileID: 7400000, guid: 082f4629997ec4c288321a10da96d310, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

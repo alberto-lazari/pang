@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private static readonly int HorizontalInputHash = Animator.StringToHash("HorizontalInput");
+    private static readonly int ShootTriggerHash = Animator.StringToHash("Shoot");
+
     [SerializeField] private float m_PlayerSpeed = 1.5f;
     [SerializeField] private Rigidbody2D m_Rigidbody;
     [SerializeField] private Animator m_Animator;
     [SerializeField] private SpriteRenderer m_SpriteRenderer;
     [SerializeField] private Weapon m_Weapon;
-
-    private static readonly int HorizontalInputHash = Animator.StringToHash("HorizontalInput");
-    private static readonly int ShootTriggerHash = Animator.StringToHash("Shoot");
 
     private bool m_IsShooting = false;
 

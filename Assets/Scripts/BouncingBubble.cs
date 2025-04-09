@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class BouncingBubble : MonoBehaviour
 {
+    private static readonly int ExplodingTriggerHash = Animator.StringToHash("Exploding");
+
     [SerializeField] private GameObject m_SmallerBall = null;
 
     [SerializeField] private float m_BounceMultiplier;
@@ -12,6 +14,7 @@ public class BouncingBubble : MonoBehaviour
 
     [SerializeField] private Rigidbody2D m_Rigidbody;
     [SerializeField] private CapsuleCollider2D m_Collider;
+    [SerializeField] private Animator m_Animator;
 
     private int m_ProjectileLayer;
 
@@ -19,6 +22,7 @@ public class BouncingBubble : MonoBehaviour
     {
         if (m_Rigidbody == null) m_Rigidbody = GetComponent<Rigidbody2D>();
         if (m_Collider == null) m_Collider = GetComponent<CapsuleCollider2D>();
+        if (m_Animator == null) m_Animator = GetComponent<Animator>();
 
         m_Rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         m_Rigidbody.linearVelocityX = m_HorizontalVelocity;
@@ -71,10 +75,8 @@ public class BouncingBubble : MonoBehaviour
         m_Rigidbody.bodyType = RigidbodyType2D.Kinematic;
         m_Rigidbody.linearVelocity = Vector2.zero;
 
-        // TODO: Start explosion animation
-
-        // Destroy the current ball on animation end
-        Destroy(gameObject);
+        // Trigger explosion animation
+        m_Animator.SetTrigger(ExplodingTriggerHash);
 
         // Spawn children only if not the smallest ball type
         if (m_SmallerBall != null)
@@ -83,6 +85,12 @@ public class BouncingBubble : MonoBehaviour
             SpawnSmallerClone(m_HorizontalVelocity);
             SpawnSmallerClone(-m_HorizontalVelocity);
         }
+    }
+
+    private void OnExploded()
+    {
+        // Destroy the current ball on animation end
+        Destroy(gameObject);
     }
 
     private void SpawnSmallerClone(float i_HorizontalVelocity)

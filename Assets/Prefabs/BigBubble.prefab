@@ -108,7 +108,6 @@ MonoBehaviour:
   m_MaxBounce: 2
   m_HorizontalVelocity: 0.6
   m_PopVerticalVelocity: 1
-  m_ExplodeAnimationDuration: 0.2
   m_Rigidbody: {fileID: 1519535724366688622}
   m_Collider: {fileID: 4056250299605373008}
 --- !u!50 &1519535724366688622
@@ -185,7 +184,7 @@ Animator:
   m_GameObject: {fileID: 2538254891908424610}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e67f231e917894d2cb879e5e9e7c68e9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

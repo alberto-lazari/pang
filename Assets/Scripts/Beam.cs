@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class Beam : MonoBehaviour
 {
+    private static readonly int HitHash = Animator.StringToHash("Hit");
+
     [SerializeField] private float m_Speed = 2.5f;
     [SerializeField] private Rigidbody2D m_Rigidbody;
     [SerializeField] private Animator m_Animator;
 
     private int m_StageLayer;
-
-    private static readonly int HitHash = Animator.StringToHash("Hit");
 
     public void Shoot()
     {

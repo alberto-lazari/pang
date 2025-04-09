@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class ShootFlash : MonoBehaviour
 {
-    [SerializeField] private Animator m_Animator;
-
     private static readonly int ShootTriggerHash = Animator.StringToHash("Shoot");
+
+    [SerializeField] private Animator m_Animator;
 
     private void Awake()
     {
