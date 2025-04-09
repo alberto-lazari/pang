@@ -8,6 +8,7 @@ public class PlayerCollisionHandler : MonoBehaviour
     [SerializeField] private PlayerController m_Controller;
     [SerializeField] private Animator m_Animator;
 
+    private bool m_IsAlive = true;
     private int m_BubbleLayer;
     private int m_StageLayer;
 
@@ -22,8 +23,9 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D i_Collider)
     {
-        if (i_Collider.gameObject.layer != m_BubbleLayer) return;
+        if (!m_IsAlive || i_Collider.gameObject.layer != m_BubbleLayer) return;
 
+        m_IsAlive = false;
         m_Controller.enabled = false;
         m_Animator.SetTrigger(HitTriggerHash);
     }
