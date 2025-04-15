@@ -4,7 +4,7 @@ public class BouncingBubble : MonoBehaviour
 {
     private static readonly int ExplodingTriggerHash = Animator.StringToHash("Exploding");
 
-    [SerializeField] private GameObject m_SmallerBall = null;
+    [SerializeField] private GameObject m_SmallerBall;
 
     [SerializeField] private float m_BounceMultiplier;
     [SerializeField] private float m_MaxBounce = 2f;
@@ -12,23 +12,25 @@ public class BouncingBubble : MonoBehaviour
     [SerializeField] private float m_HorizontalVelocity = 0.6f;
     [SerializeField] private float m_PopVerticalVelocity = 1f;
 
-    [SerializeField] private Rigidbody2D m_Rigidbody;
     [SerializeField] private CapsuleCollider2D m_Collider;
-    [SerializeField] private Animator m_Animator;
+    private Rigidbody2D m_Rigidbody;
+    private Animator m_Animator;
+    private SpriteRenderer m_Renderer;
 
     private int m_ProjectileLayer;
 
     private void Awake()
     {
-        if (m_Rigidbody == null) m_Rigidbody = GetComponent<Rigidbody2D>();
         if (m_Collider == null) m_Collider = GetComponent<CapsuleCollider2D>();
-        if (m_Animator == null) m_Animator = GetComponent<Animator>();
+        m_Rigidbody = GetComponent<Rigidbody2D>();
+        m_Animator = GetComponent<Animator>();
+        m_Renderer = GetComponent<SpriteRenderer>();
 
         m_Rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         m_Rigidbody.linearVelocityX = m_HorizontalVelocity;
 
         // Assign fixed sorting order
-        GetComponent<SpriteRenderer>().sortingOrder = Mathf.FloorToInt(transform.position.x * 100);
+        m_Renderer.sortingOrder = Mathf.FloorToInt(transform.position.x * 100);
 
         m_ProjectileLayer = LayerMask.NameToLayer("Projectile");
     }
@@ -72,6 +74,9 @@ public class BouncingBubble : MonoBehaviour
     {
         m_Rigidbody.bodyType = RigidbodyType2D.Kinematic;
         m_Rigidbody.linearVelocity = Vector2.zero;
+
+        // Move to front to show the explosion
+        m_Renderer.sortingOrder = int.MinValue;
 
         // Trigger explosion animation
         m_Animator.SetTrigger(ExplodingTriggerHash);
