@@ -5,8 +5,12 @@ public class Beam : MonoBehaviour
     private static readonly int HitHash = Animator.StringToHash("Hit");
 
     [SerializeField] private float m_Speed = 2.5f;
-    [SerializeField] private Rigidbody2D m_Rigidbody;
-    [SerializeField] private Animator m_Animator;
+
+    private Rigidbody2D m_Rigidbody;
+    private Animator m_Animator;
+
+    private int m_BubbleLayer;
+
 
     public void Shoot()
     {
@@ -15,10 +19,12 @@ public class Beam : MonoBehaviour
     }
 
 
-    private void Start()
+    private void Awake()
     {
-        if (m_Rigidbody == null) m_Rigidbody = GetComponent<Rigidbody2D>();
-        if (m_Animator == null) m_Animator = GetComponent<Animator>();
+        m_Rigidbody = GetComponent<Rigidbody2D>();
+        m_Animator = GetComponent<Animator>();
+
+        m_BubbleLayer = LayerMask.NameToLayer("Bubble");
     }
 
     private void OnCollisionEnter2D(Collision2D i_Collision)
@@ -37,6 +43,8 @@ public class Beam : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D i_Collider)
     {
+        if (i_Collider.gameObject.layer != m_BubbleLayer) return;
+
         gameObject.SetActive(false);
         Destroy();
     }
