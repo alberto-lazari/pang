@@ -474,7 +474,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HitVelocity: {x: 1.5, y: 4}
-  m_DeathBounciness: 0.3
 --- !u!1 &982838562
 GameObject:
   m_ObjectHideFlags: 0
