@@ -387,7 +387,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9753e66748d5e413e8e7d9f582cc2f06, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -473,8 +473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e4036f557914befa33a20e92675566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Controller: {fileID: 922500040}
-  m_Animator: {fileID: 922500037}
+  m_HitVelocity: {x: 1.5, y: 4}
+  m_DeathBounciness: 0.3
 --- !u!1 &982838562
 GameObject:
   m_ObjectHideFlags: 0
