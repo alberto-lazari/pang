@@ -55,19 +55,17 @@ public class BouncingBubble : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D i_Collision)
     {
-        OnCollision(i_Collision);
+        FixVelocities(i_Collision);
     }
 
     private void OnCollisionStay2D(Collision2D i_Collision)
     {
-        OnCollision(i_Collision);
+        FixVelocities(i_Collision);
     }
 
-
-    private void OnCollision(Collision2D i_Collision)
+    private void OnTriggerEnter2D(Collider2D i_Collider)
     {
-        if (i_Collision.gameObject.layer == m_ProjectileLayer) Explode();
-        else FixVelocities(i_Collision);
+        if (i_Collider.gameObject.layer == m_ProjectileLayer) Explode();
     }
 
     private void Explode()

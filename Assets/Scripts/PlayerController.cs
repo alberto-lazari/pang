@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
     private static readonly int HorizontalInputHash = Animator.StringToHash("HorizontalInput");
     private static readonly int ShootTriggerHash = Animator.StringToHash("Shoot");
 
-    [SerializeField] private float m_PlayerSpeed = 1.5f;
+    [SerializeField] private float m_Speed = 1.5f;
     [SerializeField] private Rigidbody2D m_Rigidbody;
     [SerializeField] private Animator m_Animator;
     [SerializeField] private SpriteRenderer m_SpriteRenderer;
@@ -14,11 +14,17 @@ public class PlayerController : MonoBehaviour
     private bool m_IsShooting = false;
 
 
-    private void Start()
+    private void Awake()
     {
         if (m_Rigidbody == null) m_Rigidbody = GetComponent<Rigidbody2D>();
         if (m_Animator == null) m_Animator = GetComponent<Animator>();
         if (m_SpriteRenderer == null) m_SpriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void OnDisable()
+    {
+        // Stop moving when disabling the controller component
+        Halt();
     }
 
     private void Update()
@@ -34,10 +40,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     private void Move(float i_InputSpeed)
     {
         // Update player speed
-        m_Rigidbody.linearVelocityX = i_InputSpeed * m_PlayerSpeed;
+        m_Rigidbody.linearVelocityX = i_InputSpeed * m_Speed;
 
         // Update animator controller variable
         m_Animator.SetFloat(HorizontalInputHash, i_InputSpeed);
@@ -47,15 +54,18 @@ public class PlayerController : MonoBehaviour
         else if (i_InputSpeed > 0.01f) m_SpriteRenderer.flipX = false;
     }
 
-    private void OnShoot()
+    private void Halt()
     {
-        m_IsShooting = true;
-        m_Animator.SetTrigger(ShootTriggerHash);
-
         // Stop moving animation
         m_Animator.SetFloat(HorizontalInputHash, 0f);
         m_Rigidbody.linearVelocityX = 0f;
+    }
 
+    private void OnShoot()
+    {
+        Halt();
+        m_IsShooting = true;
+        m_Animator.SetTrigger(ShootTriggerHash);
         m_Weapon.Shoot();
     }
 
