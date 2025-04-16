@@ -50,11 +50,11 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     private void OnBubbleHit(Vector2 i_HitDirection)
     {
-        m_IsAlive = false;
-        m_Controller.enabled = false;
-
         m_Animator.SetTrigger(HitTriggerHash);
         m_Animator.ResetTrigger(LandedTriggerHash);
+
+        m_IsAlive = false;
+        m_Controller.enabled = false;
 
         m_Rigidbody.linearVelocity = m_HitVelocity * new Vector2(
             // Push player along the hit direction
