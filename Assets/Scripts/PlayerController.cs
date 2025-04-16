@@ -75,7 +75,11 @@ public class PlayerController : MonoBehaviour
     private void OnMove(Vector2 i_Movement)
     {
         // Do not move while shooting
-        if (IsState(ShootingHash)) return;
+        if (IsState(ShootingHash))
+        {
+            Halt();
+            return;
+        }
 
         Run(i_Movement.x);
         Climb(i_Movement.y);
@@ -134,7 +138,7 @@ public class PlayerController : MonoBehaviour
         m_Animator.SetFloat(HorizontalInputHash, 0f);
 
         m_Rigidbody.linearVelocityX = 0f;
-        if (IsState(ClimbingHash)) m_Rigidbody.linearVelocityY = 0f;
+        if (m_LadderX is float) m_Rigidbody.linearVelocityY = 0f;
     }
 
     private bool IsState(int i_StateNameHash)
