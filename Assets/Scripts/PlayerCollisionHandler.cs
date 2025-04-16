@@ -32,20 +32,9 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D i_Collider)
     {
-        // Perform on bubble hit
-        if (!m_IsAlive || i_Collider.gameObject.layer != m_BubbleLayer) return;
-
-        m_IsAlive = false;
-        m_Controller.enabled = false;
-
-        m_Animator.SetTrigger(HitTriggerHash);
-        m_Animator.ResetTrigger(LandedTriggerHash);
-
-        bool bLeftHit = i_Collider.transform.position.x - transform.position.x < 0f;
-        m_Rigidbody.linearVelocity = m_HitVelocity
-            // Push player in the right direction
-            * new Vector2(bLeftHit ? 1f : -1f, 1f);
-        m_Rigidbody.sharedMaterial = m_Material;
+        if (!m_IsAlive) return;
+        if (i_Collider.gameObject.layer == m_BubbleLayer)
+            OnBubbleHit(transform.position - i_Collider.transform.position);
     }
 
     private void OnCollisionEnter2D(Collision2D i_Collision)
@@ -57,5 +46,21 @@ public class PlayerCollisionHandler : MonoBehaviour
             // Switch to dead sprite (if hit)
             m_Animator.SetTrigger(LandedTriggerHash);
         }
+    }
+
+    private void OnBubbleHit(Vector2 i_HitDirection)
+    {
+        m_IsAlive = false;
+        m_Controller.enabled = false;
+
+        m_Animator.SetTrigger(HitTriggerHash);
+        m_Animator.ResetTrigger(LandedTriggerHash);
+
+        m_Rigidbody.linearVelocity = m_HitVelocity * new Vector2(
+            // Push player along the hit direction
+            i_HitDirection.x > 0 ? 1f : -1f,
+            1f
+        );
+        m_Rigidbody.sharedMaterial = m_Material;
     }
 }
