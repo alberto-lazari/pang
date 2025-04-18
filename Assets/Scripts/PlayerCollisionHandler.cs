@@ -41,11 +41,8 @@ public class PlayerCollisionHandler : MonoBehaviour
     {
         if (i_Collision.gameObject.layer != m_StageLayer) return;
 
-        foreach (ContactPoint2D contact in i_Collision.contacts)
-        {
-            // Switch to dead sprite (if hit)
-            m_Animator.SetTrigger(LandedTriggerHash);
-        }
+        // Switch to dead sprite (if hit)
+        m_Animator.SetTrigger(LandedTriggerHash);
     }
 
     private void OnBubbleHit(Vector2 i_HitDirection)

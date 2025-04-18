@@ -16,16 +16,19 @@ public class PlayerController : MonoBehaviour
     private Animator m_Animator;
     private SpriteRenderer m_SpriteRenderer;
     private Actions m_InputActions;
+    private int m_StageLayer;
 
     private float? m_LadderX = null;
+    [SerializeField] private bool m_IsAtLadderTop = false;
+    [SerializeField] private bool m_IsAtLadderBottom = false;
 
 
     private void Awake()
     {
-        if (m_Weapon == null) Debug.LogError("No weapon is assigned to player");
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        m_StageLayer = LayerMask.NameToLayer("Stage");
 
         m_InputActions = new();
         m_InputActions.Player.Move.canceled += ctx => Halt();
@@ -71,6 +74,24 @@ public class PlayerController : MonoBehaviour
         m_Rigidbody.bodyType = RigidbodyType2D.Dynamic;
     }
 
+    private void OnCollisionEnter2D(Collision2D i_Collision)
+    {
+        if (i_Collision.gameObject.layer != m_StageLayer) return;
+
+        foreach (ContactPoint2D contact in i_Collision.contacts)
+        {
+            if (contact.normal.y <= 0f) break;
+            
+            m_IsAtLadderTop = i_Collision.gameObject.tag == "Ladder";
+            m_IsAtLadderBottom = !m_IsAtLadderTop;
+
+            m_Animator.SetBool(IsClimbingHash, false);
+
+            // Stop climbing
+            m_Rigidbody.linearVelocityY = 0f;
+        }
+    }
+
 
     private void OnMove(Vector2 i_Movement)
     {
@@ -88,12 +109,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnShoot()
     {
+        if (m_Weapon == null) return;
+
         // Wait shoot animation to end before shooting again
         if (IsState(ShootingHash)) return;
 
         Halt();
         m_Animator.SetTrigger(ShootHash);
-        m_Weapon?.Shoot();
+        m_Weapon.Shoot();
     }
 
     private void Run(float i_InputSpeed)
@@ -117,7 +140,15 @@ public class PlayerController : MonoBehaviour
         // Climb only if on ladder
         if (m_LadderX is not float ladderX) return;
 
-        if (!IsState(ClimbingHash) && i_InputSpeed != 0f)
+        bool bIsGoingUnder = m_IsAtLadderBottom && i_InputSpeed < 0f;
+        bool bIsGoingOver = m_IsAtLadderTop && i_InputSpeed > 0f;
+        if (bIsGoingUnder || bIsGoingOver) return;
+
+        m_Rigidbody.linearVelocityY = i_InputSpeed;
+
+        if (i_InputSpeed == 0f) return;
+
+        if (!IsState(ClimbingHash))
         {
             m_Animator.SetBool(IsClimbingHash, true);
             transform.position = new Vector3(
@@ -129,7 +160,9 @@ public class PlayerController : MonoBehaviour
             m_Rigidbody.bodyType = RigidbodyType2D.Kinematic;
         }
 
-        m_Rigidbody.linearVelocityY = i_InputSpeed;
+        // Since it's climbing it's no longer at ladder top/bottom
+        m_IsAtLadderTop = false;
+        m_IsAtLadderBottom = false;
     }
 
     private void Halt()

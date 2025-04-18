@@ -19,18 +19,19 @@ public class Weapon : MonoBehaviour
             Debug.LogError("Weapon needs a player with a sprite renderer");
             return;
         }
-
-        // Place weapon above player
-        transform.position = m_Player.transform.position
-            + Vector3.up * playerHeight;
     }
 
     public virtual void Shoot()
     {
         if (m_ShootFlash == null || m_PlayerHeight is not float playerHeight) return;
 
-        m_ShootFlash.transform.position = m_Player.transform.position
+        // Place weapon and flash above player
+        Vector3 weaponPosition = m_Player.transform.position
             + Vector3.up * playerHeight;
+        transform.position = weaponPosition;
+        m_ShootFlash.transform.position = weaponPosition;
+
+        // Show shoot flash
         m_ShootFlash.OnShoot();
     }
 }
