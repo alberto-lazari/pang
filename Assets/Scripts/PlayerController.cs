@@ -54,6 +54,13 @@ public class PlayerController : MonoBehaviour
         if (inputMovement != Vector2.zero) OnMove(inputMovement);
     }
 
+    private void OnTriggerEnter2D(Collider2D i_Collider)
+    {
+        if (i_Collider.gameObject.tag != "Ladder") return;
+
+        m_IsAtLadderBottom = !m_IsAtLadderTop;
+    }
+
     private void OnTriggerStay2D(Collider2D i_Collider)
     {
         if (i_Collider.gameObject.tag != "Ladder") return;
@@ -72,23 +79,41 @@ public class PlayerController : MonoBehaviour
         m_Animator.SetBool(IsClimbingHash, false);
         m_Rigidbody.linearVelocityY = 0f;
         m_Rigidbody.bodyType = RigidbodyType2D.Dynamic;
+
+        m_IsAtLadderTop = false;
+        m_IsAtLadderBottom = false;
     }
 
     private void OnCollisionEnter2D(Collision2D i_Collision)
     {
         if (i_Collision.gameObject.layer != m_StageLayer) return;
 
+        float? contactY = null;
         foreach (ContactPoint2D contact in i_Collision.contacts)
         {
             if (contact.normal.y <= 0f) break;
-            
-            m_IsAtLadderTop = i_Collision.gameObject.tag == "Ladder";
-            m_IsAtLadderBottom = !m_IsAtLadderTop;
 
-            m_Animator.SetBool(IsClimbingHash, false);
+            if (contactY is not float) contactY = contact.point.y;
+            if (i_Collision.gameObject.tag == "Ladder") m_IsAtLadderTop = true;
 
             // Stop climbing
             m_Rigidbody.linearVelocityY = 0f;
+            m_Animator.SetBool(IsClimbingHash, false);
+        }
+
+        m_IsAtLadderBottom = m_LadderX is float && !m_IsAtLadderTop;
+
+        if (contactY is float y)
+        {
+            m_Rigidbody.bodyType = RigidbodyType2D.Dynamic;
+
+            // Place on the contact point
+            transform.position = new Vector3(
+                transform.position.x,
+                // Penetrate slightly to let collisions adjust the position
+                y - 0.01f,
+                transform.position.z
+            );
         }
     }
 
