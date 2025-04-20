@@ -18,9 +18,15 @@ public class PlayerController : MonoBehaviour
     private Actions m_InputActions;
     private int m_StageLayer;
 
+    public enum LadderStatus
+    {
+        Away,
+        Bottom,
+        Middle,
+        Top,
+    }
     private float? m_LadderX = null;
-    [SerializeField] private bool m_IsAtLadderTop = false;
-    [SerializeField] private bool m_IsAtLadderBottom = false;
+    private LadderStatus m_LadderStatus = LadderStatus.Away;
 
 
     private void Awake()
@@ -58,7 +64,7 @@ public class PlayerController : MonoBehaviour
     {
         if (i_Collider.gameObject.tag != "Ladder") return;
 
-        m_IsAtLadderBottom = !m_IsAtLadderTop;
+        if (m_LadderStatus != LadderStatus.Top) m_LadderStatus = LadderStatus.Bottom;
     }
 
     private void OnTriggerStay2D(Collider2D i_Collider)
@@ -79,9 +85,7 @@ public class PlayerController : MonoBehaviour
         m_Animator.SetBool(IsClimbingHash, false);
         m_Rigidbody.linearVelocityY = 0f;
         m_Rigidbody.bodyType = RigidbodyType2D.Dynamic;
-
-        m_IsAtLadderTop = false;
-        m_IsAtLadderBottom = false;
+        m_LadderStatus = LadderStatus.Away;
     }
 
     private void OnCollisionEnter2D(Collision2D i_Collision)
@@ -93,15 +97,16 @@ public class PlayerController : MonoBehaviour
         {
             if (contact.normal.y <= 0f) break;
 
-            if (contactY is not float) contactY = contact.point.y;
-            if (i_Collision.gameObject.tag == "Ladder") m_IsAtLadderTop = true;
+            if (contactY == null) contactY = contact.point.y;
+            if (i_Collision.gameObject.tag == "Ladder") m_LadderStatus = LadderStatus.Top;
 
             // Stop climbing
             m_Rigidbody.linearVelocityY = 0f;
             m_Animator.SetBool(IsClimbingHash, false);
         }
 
-        m_IsAtLadderBottom = m_LadderX is float && !m_IsAtLadderTop;
+        if (m_LadderX != null && m_LadderStatus != LadderStatus.Top)
+            m_LadderStatus = LadderStatus.Bottom;
 
         if (contactY is float y)
         {
@@ -165,8 +170,8 @@ public class PlayerController : MonoBehaviour
         // Climb only if on ladder
         if (m_LadderX is not float ladderX) return;
 
-        bool bIsGoingUnder = m_IsAtLadderBottom && i_InputSpeed < 0f;
-        bool bIsGoingOver = m_IsAtLadderTop && i_InputSpeed > 0f;
+        bool bIsGoingUnder = m_LadderStatus == LadderStatus.Bottom && i_InputSpeed < 0f;
+        bool bIsGoingOver = m_LadderStatus == LadderStatus.Top && i_InputSpeed > 0f;
         if (bIsGoingUnder || bIsGoingOver) return;
 
         m_Rigidbody.linearVelocityY = i_InputSpeed;
@@ -186,8 +191,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Since it's climbing it's no longer at ladder top/bottom
-        m_IsAtLadderTop = false;
-        m_IsAtLadderBottom = false;
+        m_LadderStatus = LadderStatus.Middle;
     }
 
     private void Halt()
@@ -196,7 +200,7 @@ public class PlayerController : MonoBehaviour
         m_Animator.SetFloat(HorizontalInputHash, 0f);
 
         m_Rigidbody.linearVelocityX = 0f;
-        if (m_LadderX is float) m_Rigidbody.linearVelocityY = 0f;
+        if (m_LadderX != null) m_Rigidbody.linearVelocityY = 0f;
     }
 
     private bool IsState(int i_StateNameHash)
