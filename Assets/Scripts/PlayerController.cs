@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private static readonly int HorizontalInputHash = Animator.StringToHash("HorizontalInput");
+    private static readonly int VerticalInputHash = Animator.StringToHash("VerticalInput");
     private static readonly int ShootHash = Animator.StringToHash("Shoot");
     private static readonly int ShootingHash = Animator.StringToHash("Shooting");
     private static readonly int IsClimbingHash = Animator.StringToHash("IsClimbing");
@@ -175,6 +176,7 @@ public class PlayerController : MonoBehaviour
         if (bIsGoingUnder || bIsGoingOver) return;
 
         m_Rigidbody.linearVelocityY = i_InputSpeed;
+        m_Animator.SetFloat(VerticalInputHash, i_InputSpeed);
 
         if (i_InputSpeed == 0f) return;
 
@@ -196,8 +198,9 @@ public class PlayerController : MonoBehaviour
 
     private void Halt()
     {
-        // Stop moving animation
+        // Stop moving animations
         m_Animator.SetFloat(HorizontalInputHash, 0f);
+        m_Animator.SetFloat(VerticalInputHash, 0f);
 
         m_Rigidbody.linearVelocityX = 0f;
         if (m_LadderX != null) m_Rigidbody.linearVelocityY = 0f;
