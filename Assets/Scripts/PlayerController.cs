@@ -8,10 +8,11 @@ public class PlayerController : MonoBehaviour
     private static readonly int ShootingHash = Animator.StringToHash("Shooting");
     private static readonly int IsClimbingHash = Animator.StringToHash("IsClimbing");
     private static readonly int ClimbingHash = Animator.StringToHash("Climbing");
+    private static readonly int TopOutHash = Animator.StringToHash("TopOut");
 
     [SerializeField] private float m_RunningSpeed = 1.5f;
     [SerializeField] private float m_ClimbingSpeed = 0.9f;
-    [SerializeField] private float m_LadderTriggerDistance = 0.1f;
+    [SerializeField] private float m_LadderTriggerDistance = 0.05f;
 
     [SerializeField] private Weapon m_Weapon;
     private Rigidbody2D m_Rigidbody;
@@ -60,7 +61,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Vector2 inputMovement = m_InputActions.Player.Move.ReadValue<Vector2>();
-        if (inputMovement != Vector2.zero) OnMove(inputMovement);
+        OnMove(inputMovement);
     }
 
     private void OnTriggerEnter2D(Collider2D i_Collider)
@@ -126,26 +127,12 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(
                 transform.position.x,
                 // Penetrate slightly to let collisions adjust the position
-                y - 0.005f,
+                y - 0.01f,
                 transform.position.z
             );
         }
     }
 
-
-    private void OnMove(Vector2 i_Movement)
-    {
-        // Do not move while shooting
-        if (IsState(ShootingHash))
-        {
-            Halt();
-            return;
-        }
-
-        Run(i_Movement.x);
-        Climb(i_Movement.y);
-
-    }
 
     private void OnShoot()
     {
@@ -157,6 +144,27 @@ public class PlayerController : MonoBehaviour
         Halt();
         m_Animator.SetTrigger(ShootHash);
         m_Weapon.Shoot();
+    }
+
+    private void OnMove(Vector2 i_Movement)
+    {
+        // Stop while topping out of a ladder
+        if (IsState(TopOutHash))
+        {
+            m_Rigidbody.linearVelocityY = 0f;
+            return;
+        }
+
+        // Do not move while shooting
+        if (IsState(ShootingHash))
+        {
+            Halt();
+            return;
+        }
+
+        Run(i_Movement.x);
+        Climb(i_Movement.y);
+
     }
 
     private void Run(float i_InputSpeed)
@@ -191,6 +199,7 @@ public class PlayerController : MonoBehaviour
 
         if (!IsState(ClimbingHash))
         {
+            m_Animator.SetFloat(HorizontalInputHash, 0f);
             m_Animator.SetBool(IsClimbingHash, true);
             transform.position = new Vector3(
                 ladderX,
@@ -211,16 +220,20 @@ public class PlayerController : MonoBehaviour
         if (transform.position.y > topOutY)
         {
             // Stop climbing
-            m_Animator.SetBool(IsClimbingHash, false);
-            m_Rigidbody.linearVelocityY = 0f;
-            m_Rigidbody.bodyType = RigidbodyType2D.Dynamic;
+            if (i_InputSpeed > 0f)
+            {
+                m_Animator.SetBool(IsClimbingHash, false);
+                m_Rigidbody.linearVelocityY = 0f;
+                m_Rigidbody.bodyType = RigidbodyType2D.Dynamic;
+            }
             // Top out
+            m_Animator.SetTrigger(TopOutHash);
             transform.position = new Vector3(
                 ladderX,
                 // Perform top out when a specific Y is reached
                 i_InputSpeed > 0f
-                    ? ladderTopY + 0.005f
-                    : topOutY,
+                    ? ladderTopY + 0.01f
+                    : topOutY - 0.01f,
                 transform.position.z
             );
         }
@@ -230,7 +243,7 @@ public class PlayerController : MonoBehaviour
     {
         // Stop moving animations
         m_Animator.SetFloat(HorizontalInputHash, 0f);
-        m_Animator.SetFloat(VerticalInputHash, 0f);
+        if (!IsState(TopOutHash)) m_Animator.SetFloat(VerticalInputHash, 0f);
 
         m_Rigidbody.linearVelocityX = 0f;
         if (m_LadderX != null) m_Rigidbody.linearVelocityY = 0f;

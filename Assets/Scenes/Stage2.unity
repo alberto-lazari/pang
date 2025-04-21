@@ -1263,6 +1263,10 @@ PrefabInstance:
       propertyPath: m_ClimbingSpeed
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 1447696368153642423, guid: d48fea741d23a4483a6e2df955120e21, type: 3}
+      propertyPath: m_LadderTriggerDistance
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 2898069494009221569, guid: d48fea741d23a4483a6e2df955120e21, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -175,6 +175,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: player-climbing_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41759787774e84e688881a15adc762ce
+      internalID: 1730077961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -192,6 +214,7 @@ TextureImporter:
       player-climbing_0: -1260183017
       player-climbing_1: 810792436
       player-climbing_2: -969219998
+      player-climbing_3: 1730077961
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
