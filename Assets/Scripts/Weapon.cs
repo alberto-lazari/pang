@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour
 
         m_PlayerHeight = m_Player.GetComponent<SpriteRenderer>()
             ?.bounds.size.y;
-        if (m_PlayerHeight is not float playerHeight)
+        if (m_PlayerHeight == null)
         {
             Debug.LogError("Weapon needs a player with a sprite renderer");
             return;

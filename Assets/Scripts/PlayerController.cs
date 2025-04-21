@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     private static readonly int IsClimbingHash = Animator.StringToHash("IsClimbing");
     private static readonly int ClimbingHash = Animator.StringToHash("Climbing");
 
-    [SerializeField] private float m_Speed = 1.5f;
+    [SerializeField] private float m_RunningSpeed = 1.5f;
+    [SerializeField] private float m_ClimbingSpeed = 0.9f;
     [SerializeField] private float m_LadderTriggerDistance = 0.1f;
 
     [SerializeField] private Weapon m_Weapon;
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
         Top,
     }
     private float? m_LadderX = null;
+    private float? m_LadderTopY = null;
     private LadderStatus m_LadderStatus = LadderStatus.Away;
 
 
@@ -66,16 +68,21 @@ public class PlayerController : MonoBehaviour
         if (i_Collider.gameObject.tag != "Ladder") return;
 
         if (m_LadderStatus != LadderStatus.Top) m_LadderStatus = LadderStatus.Bottom;
+
+        m_LadderTopY = i_Collider.transform.position.y
+            + i_Collider.GetComponent<SpriteRenderer>().bounds.size.y;
     }
 
     private void OnTriggerStay2D(Collider2D i_Collider)
     {
         if (i_Collider.gameObject.tag != "Ladder") return;
 
-        float ladderX = i_Collider.transform.position.x;
-        m_LadderX = Mathf.Abs(ladderX - transform.position.x) < m_LadderTriggerDistance
-            ? ladderX
-            : null;
+        if (m_LadderX == null) {
+            float ladderX = i_Collider.transform.position.x;
+            m_LadderX = Mathf.Abs(ladderX - transform.position.x) < m_LadderTriggerDistance
+                ? ladderX
+                : null;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D i_Collider)
@@ -83,10 +90,12 @@ public class PlayerController : MonoBehaviour
         if (i_Collider.gameObject.tag != "Ladder") return;
 
         m_LadderX = null;
+        m_LadderTopY = null;
+        m_LadderStatus = LadderStatus.Away;
+
         m_Animator.SetBool(IsClimbingHash, false);
         m_Rigidbody.linearVelocityY = 0f;
         m_Rigidbody.bodyType = RigidbodyType2D.Dynamic;
-        m_LadderStatus = LadderStatus.Away;
     }
 
     private void OnCollisionEnter2D(Collision2D i_Collision)
@@ -117,7 +126,7 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(
                 transform.position.x,
                 // Penetrate slightly to let collisions adjust the position
-                y - 0.01f,
+                y - 0.005f,
                 transform.position.z
             );
         }
@@ -156,7 +165,7 @@ public class PlayerController : MonoBehaviour
         if (IsState(ClimbingHash)) return;
 
         // Update player speed
-        m_Rigidbody.linearVelocityX = i_InputSpeed * m_Speed;
+        m_Rigidbody.linearVelocityX = i_InputSpeed * m_RunningSpeed;
 
         // Update animator controller variable
         m_Animator.SetFloat(HorizontalInputHash, i_InputSpeed);
@@ -175,7 +184,7 @@ public class PlayerController : MonoBehaviour
         bool bIsGoingOver = m_LadderStatus == LadderStatus.Top && i_InputSpeed > 0f;
         if (bIsGoingUnder || bIsGoingOver) return;
 
-        m_Rigidbody.linearVelocityY = i_InputSpeed;
+        m_Rigidbody.linearVelocityY = i_InputSpeed * m_ClimbingSpeed;
         m_Animator.SetFloat(VerticalInputHash, i_InputSpeed);
 
         if (i_InputSpeed == 0f) return;
@@ -194,6 +203,27 @@ public class PlayerController : MonoBehaviour
 
         // Since it's climbing it's no longer at ladder top/bottom
         m_LadderStatus = LadderStatus.Middle;
+
+        // Manage top out
+        if (m_LadderTopY is not float ladderTopY) return;
+        float playerHeight = m_SpriteRenderer.bounds.size.y;
+        float topOutY = ladderTopY - playerHeight / 2;
+        if (transform.position.y > topOutY)
+        {
+            // Stop climbing
+            m_Animator.SetBool(IsClimbingHash, false);
+            m_Rigidbody.linearVelocityY = 0f;
+            m_Rigidbody.bodyType = RigidbodyType2D.Dynamic;
+            // Top out
+            transform.position = new Vector3(
+                ladderX,
+                // Perform top out when a specific Y is reached
+                i_InputSpeed > 0f
+                    ? ladderTopY + 0.005f
+                    : topOutY,
+                transform.position.z
+            );
+        }
     }
 
     private void Halt()
