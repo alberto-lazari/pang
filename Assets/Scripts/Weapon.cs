@@ -15,19 +15,23 @@ public class Weapon : MonoBehaviour
         m_PlayerHeight = m_Player.GetComponent<SpriteRenderer>()
             ?.bounds.size.y;
         if (m_PlayerHeight == null)
+        {
             Debug.LogError("Weapon needs a player with a sprite renderer");
-
-        // Place weapon above player
-        transform.position = m_Player.transform.position
-            + Vector3.up * (float)m_PlayerHeight;
+            return;
+        }
     }
 
     public virtual void Shoot()
     {
-        if (m_ShootFlash == null || m_PlayerHeight == null) return;
+        if (m_ShootFlash == null || m_PlayerHeight is not float playerHeight) return;
 
-        m_ShootFlash.transform.position = m_Player.transform.position
-            + Vector3.up * (float)m_PlayerHeight;
+        // Place weapon and flash above player
+        Vector3 weaponPosition = m_Player.transform.position
+            + Vector3.up * playerHeight;
+        transform.position = weaponPosition;
+        m_ShootFlash.transform.position = weaponPosition;
+
+        // Show shoot flash
         m_ShootFlash.OnShoot();
     }
 }
