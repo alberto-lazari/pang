@@ -101,7 +101,7 @@ public class BouncingBubble : MonoBehaviour
 
     private void SpawnSmallerClone(float i_HorizontalVelocity)
     {
-        GameObject ball = Instantiate<GameObject>(m_SmallerBall);
+        GameObject ball = Instantiate<GameObject>(m_SmallerBall, transform.parent);
         ball.transform.position = transform.position;
         ball.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(
             i_HorizontalVelocity,

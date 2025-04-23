@@ -19,7 +19,8 @@ public class Gun : Weapon
         Instantiate<Beam>(
             m_Beam,
             transform.position,
-            m_Beam.transform.rotation
+            m_Beam.transform.rotation,
+            transform.parent
         ).Shoot();
     }
 }
