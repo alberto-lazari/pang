@@ -1,0 +1,1280 @@
+fileFormatVersion: 2
+guid: 8708da166e20044c8bb4032bc1183e73
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: stage-backgrounds_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 5208
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 629bb7df1720847ecb08418901d4e0a6
+      internalID: -1418647821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_1
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 5208
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb638633bb864404d856ea4d435e081c
+      internalID: 1904898874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_2
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 4992
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea37e6a01f3c34cd78aed31849fd3289
+      internalID: 1653858392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_3
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 4992
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 282ff293b5b6e487b894581b9eead840
+      internalID: -733471769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_4
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 4776
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ade1faed0218e4184bc767ea0ed8c545
+      internalID: -1587856442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_5
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 4776
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c87da9782c44b4003b15859b8cdd9b16
+      internalID: 204385593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_6
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 4560
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 651d9c128a44c4b5c87d86f5f3d6118d
+      internalID: 23735925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_7
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 4560
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b2e849b56b1d4d388656818bfa28a6a
+      internalID: -403931714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_8
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 4344
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebd45ebeaaa334fb68ca89bcc85a1fdb
+      internalID: -2109215010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_9
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 4344
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 417d5650ed4314ad9aad020694e6d58b
+      internalID: -477448778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_10
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 4128
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2940ae1e6e074408f88ec70a558a9ded
+      internalID: -1892798814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_11
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 4128
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ca7935404a28471e91ec918eb13d072
+      internalID: 453548344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_12
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 3912
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5defa665f4be4e958de0819327e07e3
+      internalID: -168663220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_13
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 3912
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e414dae8e8ed1463d927682df2574bee
+      internalID: -1289435026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_14
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 3696
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d78fb60d84c3b401f8d4e2e7f734a0fe
+      internalID: -1932748715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_15
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 3696
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26fa3b89628a0492fbe825582139e261
+      internalID: 887895013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_16
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 3480
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7f4c672ee08941d3abbb831c49400ee
+      internalID: -79571862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_17
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 3480
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b801aecf4cc24774a1804387840eba4
+      internalID: 341595179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_18
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 3264
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc0bb37db75ee4b76809a7bbabea0c60
+      internalID: 1549832518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_19
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 3264
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99ba7c93278fc4f60ada0316af09f9fc
+      internalID: 229077141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_20
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 3048
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd7f3a07457204387b3cda91245ee5d3
+      internalID: 1910465380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_21
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 3048
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc3d604e181d64e7ab62c6848da70aef
+      internalID: 141275538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_22
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 2832
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bc7c9c43de14407f8047b90b5a50930
+      internalID: -675031079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_23
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 2832
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 077dd819921a64d2ca3fad28511a6f35
+      internalID: -1993066688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_24
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 2616
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc7ef4ef4f9bc445397b172aa0669496
+      internalID: 1239797938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_25
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 2616
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 313fb01b6e651471ba25d7d2316a1da1
+      internalID: 522909933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_26
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 2400
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3c8bd462073245e0927e569c30c2e08
+      internalID: -374338232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_27
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 2400
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5ab2945659df479287e217be62b511c
+      internalID: -343406653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_28
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 2184
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2861c5aba85394cb7bdf2195fa84ec72
+      internalID: -928900588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_29
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 2184
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 085343608758b4221a0e9a05833e92fe
+      internalID: 1764235613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_30
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1968
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d413191d67c3146fcbdc177d68deff9a
+      internalID: -791654939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_31
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1968
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5b2865afbb194bb2b2a397006b0423f
+      internalID: 769455114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_32
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1752
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a866e9abd66154b3da49c364a636cded
+      internalID: -291531428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_33
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1752
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 916b0977a80304a95a19ebeb2e7531a7
+      internalID: 310921740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_34
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1536
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f2d9f8ca42924fc09176206c266daa0
+      internalID: 274195734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_35
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1536
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c17ac9e71c3ed478091941ce285c63b4
+      internalID: 1249016071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_36
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1320
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dddd1ff3e5cb400cad2357eedb27ac6
+      internalID: 2022411675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_37
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1320
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3920305421b67487c858cf8939ae963e
+      internalID: 418982618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_38
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1104
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3d181588f7774db0b655c57e006d359
+      internalID: 656106954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_39
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1104
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 517980624db3f43b4a4a6f20af515ddb
+      internalID: 1410541339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_40
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 888
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b267bb4379dc24126b649c955d0a37d6
+      internalID: 1314467651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_41
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 888
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86d4c08e721534d6dbe709f6fb2422db
+      internalID: -1211898695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_42
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 672
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 816207469673c4439b7476c4c8f90990
+      internalID: -738801064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_43
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 672
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64450a8cf5665439e8c1e5106aab15c5
+      internalID: -479284399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_44
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 456
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f5503ace39704001892cff1ad66d0e9
+      internalID: 705253293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_45
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 456
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bd6e63b9e6104da2b7addefc874f28d
+      internalID: -726508850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_46
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 240
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 504307271f9c54c8288756d51a249148
+      internalID: 1966326251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_47
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 240
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12dc4c20b09874a95a283d0becb7c618
+      internalID: -559197567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_48
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 24
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d477e8c4472c74e4090631cb30b2d3a5
+      internalID: -181496362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: stage-backgrounds_49
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 24
+        width: 384
+        height: 208
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa6a69607d5b04e48960f3ddc754b447
+      internalID: 825197865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3c307ed74b5d04d749b3cce269aae9f4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      stage-backgrounds_0: -1418647821
+      stage-backgrounds_1: 1904898874
+      stage-backgrounds_10: -1892798814
+      stage-backgrounds_11: 453548344
+      stage-backgrounds_12: -168663220
+      stage-backgrounds_13: -1289435026
+      stage-backgrounds_14: -1932748715
+      stage-backgrounds_15: 887895013
+      stage-backgrounds_16: -79571862
+      stage-backgrounds_17: 341595179
+      stage-backgrounds_18: 1549832518
+      stage-backgrounds_19: 229077141
+      stage-backgrounds_2: 1653858392
+      stage-backgrounds_20: 1910465380
+      stage-backgrounds_21: 141275538
+      stage-backgrounds_22: -675031079
+      stage-backgrounds_23: -1993066688
+      stage-backgrounds_24: 1239797938
+      stage-backgrounds_25: 522909933
+      stage-backgrounds_26: -374338232
+      stage-backgrounds_27: -343406653
+      stage-backgrounds_28: -928900588
+      stage-backgrounds_29: 1764235613
+      stage-backgrounds_3: -733471769
+      stage-backgrounds_30: -791654939
+      stage-backgrounds_31: 769455114
+      stage-backgrounds_32: -291531428
+      stage-backgrounds_33: 310921740
+      stage-backgrounds_34: 274195734
+      stage-backgrounds_35: 1249016071
+      stage-backgrounds_36: 2022411675
+      stage-backgrounds_37: 418982618
+      stage-backgrounds_38: 656106954
+      stage-backgrounds_39: 1410541339
+      stage-backgrounds_4: -1587856442
+      stage-backgrounds_40: 1314467651
+      stage-backgrounds_41: -1211898695
+      stage-backgrounds_42: -738801064
+      stage-backgrounds_43: -479284399
+      stage-backgrounds_44: 705253293
+      stage-backgrounds_45: -726508850
+      stage-backgrounds_46: 1966326251
+      stage-backgrounds_47: -559197567
+      stage-backgrounds_48: -181496362
+      stage-backgrounds_49: 825197865
+      stage-backgrounds_5: 204385593
+      stage-backgrounds_6: 23735925
+      stage-backgrounds_7: -403931714
+      stage-backgrounds_8: -2109215010
+      stage-backgrounds_9: -477448778
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
