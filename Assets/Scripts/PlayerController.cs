@@ -106,16 +106,19 @@ public class PlayerController : MonoBehaviour
         float? contactY = null;
         foreach (ContactPoint2D contact in i_Collision.contacts)
         {
-            if (contact.normal.y <= 0f) break;
+            // Handle floor collision
+            if (contact.normal.y > 0f)
+            {
+                if (contactY == null) contactY = contact.point.y;
+                if (i_Collision.gameObject.tag == "Ladder") m_LadderStatus = LadderStatus.Top;
 
-            if (contactY == null) contactY = contact.point.y;
-            if (i_Collision.gameObject.tag == "Ladder") m_LadderStatus = LadderStatus.Top;
-
-            // Stop climbing
-            m_Rigidbody.linearVelocityY = 0f;
-            m_Animator.SetBool(IsClimbingHash, false);
+                // Stop climbing
+                m_Rigidbody.linearVelocityY = 0f;
+                m_Animator.SetBool(IsClimbingHash, false);
+            }
         }
 
+        // If not at the top of the ladder it has to be at the bottom
         if (m_LadderX != null && m_LadderStatus != LadderStatus.Top)
             m_LadderStatus = LadderStatus.Bottom;
 
@@ -172,15 +175,15 @@ public class PlayerController : MonoBehaviour
         // Can't move horizontally while climbing
         if (IsState(ClimbingHash)) return;
 
+        // Make sprite face the right direction
+        if (i_InputSpeed < 0f) m_SpriteRenderer.flipX = true;
+        else if (i_InputSpeed > 0f) m_SpriteRenderer.flipX = false;
+
         // Update player speed
         m_Rigidbody.linearVelocityX = i_InputSpeed * m_RunningSpeed;
 
         // Update animator controller variable
         m_Animator.SetFloat(HorizontalInputHash, i_InputSpeed);
-
-        // Make sprite face the right direction
-        if (i_InputSpeed < 0f) m_SpriteRenderer.flipX = true;
-        else if (i_InputSpeed > 0f) m_SpriteRenderer.flipX = false;
     }
 
     private void Climb(float i_InputSpeed)
@@ -192,15 +195,19 @@ public class PlayerController : MonoBehaviour
         bool bIsGoingOver = m_LadderStatus == LadderStatus.Top && i_InputSpeed > 0f;
         if (bIsGoingUnder || bIsGoingOver) return;
 
-        m_Rigidbody.linearVelocityY = i_InputSpeed * m_ClimbingSpeed;
-        m_Animator.SetFloat(VerticalInputHash, i_InputSpeed);
+        if (IsState(ClimbingHash))
+        {
+            m_Rigidbody.linearVelocityY = i_InputSpeed * m_ClimbingSpeed;
+            m_Animator.SetFloat(VerticalInputHash, i_InputSpeed);
+        }
 
         if (i_InputSpeed == 0f) return;
 
         if (!IsState(ClimbingHash))
         {
-            m_Animator.SetFloat(HorizontalInputHash, 0f);
+            // Start climbing
             m_Animator.SetBool(IsClimbingHash, true);
+            m_Animator.SetFloat(HorizontalInputHash, 0f);
             transform.position = new Vector3(
                 ladderX,
                 transform.position.y,
