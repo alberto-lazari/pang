@@ -114,7 +114,8 @@ public class BouncingBubble : MonoBehaviour
         foreach (ContactPoint2D contact in i_Collision.contacts)
         {
             // Check for floor collision
-            if (contact.normal.y > 0f) OnFloorCollision(contact.point.y);
+            if (contact.normal.y > 0f && contact.relativeVelocity.y >= 0f)
+                OnFloorCollision(contact.point.y);
             FixHorizontalVelocity(contact.normal.x);
         }
     }
@@ -132,8 +133,8 @@ public class BouncingBubble : MonoBehaviour
 
         float direction = Mathf.Sign(i_NormalX != 0f
             ? i_NormalX
-            : currentHorizontalVelocity);
-
+            : currentHorizontalVelocity
+        );
         m_Rigidbody.linearVelocityX = direction * m_HorizontalVelocity;
     }
 }
