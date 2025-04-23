@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
     private float? m_LadderTopY = null;
     private LadderStatus m_LadderStatus = LadderStatus.Away;
 
+    private float m_TouchingWallDirection = 0f;
+
 
     private void Awake()
     {
@@ -136,6 +138,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay2D(Collision2D i_Collision)
+    {
+        if (i_Collision.gameObject.layer != m_StageLayer) return;
+
+        m_TouchingWallDirection = 0f;
+        foreach (ContactPoint2D contact in i_Collision.contacts)
+        {
+            float normal = contact.normal.x;
+            // Register collision with wall
+            //  1 -> right wall
+            // -1 -> left wall
+            //  0 -> not colliding with any wall
+            if (Mathf.Abs(normal) > 0.5f) m_TouchingWallDirection = -Mathf.Sign(normal);
+        }
+    }
+
 
     private void OnShoot()
     {
@@ -174,6 +192,13 @@ public class PlayerController : MonoBehaviour
     {
         // Can't move horizontally while climbing
         if (IsState(ClimbingHash)) return;
+
+        // Avoid bumping into walls
+        if (i_InputSpeed * m_TouchingWallDirection > 0f)
+        {
+            m_Animator.SetFloat(HorizontalInputHash, 0f);
+            return;
+        }
 
         // Make sprite face the right direction
         if (i_InputSpeed < 0f) m_SpriteRenderer.flipX = true;
