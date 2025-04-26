@@ -69,7 +69,7 @@ public class PlayerCollisionHandler : MonoBehaviour
 
         m_Rigidbody.linearVelocity = m_HitVelocity * new Vector2(
             // Push player along the hit direction
-            i_HitDirection.x > 0 ? 1f : -1f,
+            Mathf.Sign(i_HitDirection.x),
             1f
         );
         m_Rigidbody.sharedMaterial = m_Material;
