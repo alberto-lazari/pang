@@ -6,6 +6,7 @@ public class PlayerCollisionHandler : MonoBehaviour
     private static readonly int LandedTriggerHash = Animator.StringToHash("Landed");
 
     [SerializeField] private Vector2 m_HitVelocity = new Vector2(1.5f, 4f);
+    [SerializeField] private Shield m_Shield = null;
     private bool m_IsAlive = true;
 
     private PlayerController m_Controller;
@@ -15,6 +16,12 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     private int m_BubbleLayer;
     private int m_StageLayer;
+
+    public void SetShield(Shield i_Shield)
+    {
+        if (m_Shield != null) Destroy(i_Shield.gameObject);
+        m_Shield = i_Shield;
+    }
 
     private void Awake()
     {
@@ -47,6 +54,13 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     private void OnBubbleHit(Vector2 i_HitDirection)
     {
+        if (m_Shield != null)
+        {
+            // If having shield just use it
+            m_Shield.OnHit();
+            return;
+        }
+
         m_Animator.SetTrigger(HitTriggerHash);
         m_Animator.ResetTrigger(LandedTriggerHash);
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e9f29eab570c24f3fa8b315acf26c58e
+guid: 8a39645eb6ab54e01a1e54ad28784748
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,45 +110,111 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player-shooting_0
+      name: shield-item_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 28
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9292fc802c75417eaf32403180520c0
-      internalID: 1964905749
+      spriteID: 0c1cf9b7aba24400ab407fb3ba6f9375
+      internalID: -1506333373
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-shooting_1
+      name: shield-item_1
       rect:
         serializedVersion: 2
-        x: 34
+        x: 18
         y: 0
-        width: 28
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fc8da356d2e7480aa44dd1391cec592
-      internalID: 295710488
+      spriteID: 057cb5a61c0704d57b6ed5ccfbe2e0d6
+      internalID: -1153244643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shield-item_2
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fbb5a0f54984422eb551e6b009756d5
+      internalID: 444870638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shield-item_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af6d10805f5994966afe62b3383b317b
+      internalID: -447148646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shield-item_4
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 0
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 532009a1e96c74576925afa2b8a1ec77
+      internalID: 1393662074
       vertices: []
       indices: 
       edges: []
@@ -157,7 +223,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cf2e25486e8b34dd6a5561837756f87a
+    spriteID: 4b47910a2a7d64111843e361c109cdb6
     internalID: 0
     vertices: []
     indices: 
@@ -167,8 +233,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      player-shooting_0: 1964905749
-      player-shooting_1: 295710488
+      shield-item_0: -1506333373
+      shield-item_1: -1153244643
+      shield-item_2: 444870638
+      shield-item_3: -447148646
+      shield-item_4: 1393662074
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

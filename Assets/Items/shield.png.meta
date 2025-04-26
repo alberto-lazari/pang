@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e9f29eab570c24f3fa8b315acf26c58e
+guid: 43e27a22cac504fd89531b3d56b37bdb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,45 +110,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player-shooting_0
+      name: shield_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 4
         y: 0
-        width: 28
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 32
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9292fc802c75417eaf32403180520c0
-      internalID: 1964905749
+      spriteID: 18e1c4a26daf34d6d8427728e6b5343c
+      internalID: -536311420
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player-shooting_1
+      name: shield_1
       rect:
         serializedVersion: 2
-        x: 34
+        x: 44
         y: 0
-        width: 28
-        height: 32
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 32
+        height: 39
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fc8da356d2e7480aa44dd1391cec592
-      internalID: 295710488
+      spriteID: d7c53ca627cb34e13a45f2761d79ba4a
+      internalID: -40028979
       vertices: []
       indices: 
       edges: []
@@ -157,7 +157,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cf2e25486e8b34dd6a5561837756f87a
+    spriteID: 28d1c2362cf32443b9f98a09d8d5ea34
     internalID: 0
     vertices: []
     indices: 
@@ -167,8 +167,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      player-shooting_0: 1964905749
-      player-shooting_1: 295710488
+      shield_0: -536311420
+      shield_1: -40028979
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
