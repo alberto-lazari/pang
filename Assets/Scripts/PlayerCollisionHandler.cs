@@ -19,8 +19,8 @@ public class PlayerCollisionHandler : MonoBehaviour
 
     public void SetShield(Shield i_Shield)
     {
-        if (m_Shield != null) Destroy(i_Shield.gameObject);
-        m_Shield = i_Shield;
+        if (m_Shield == null) m_Shield = i_Shield;
+        else Destroy(i_Shield.gameObject);
     }
 
     private void Awake()
