@@ -35,6 +35,12 @@ public class PlayerController : MonoBehaviour
     private float m_TouchingWallDirection = 0f;
 
 
+    public void SetWeapon(Weapon i_Weapon)
+    {
+        if (m_Weapon != null) Destroy(m_Weapon);
+        m_Weapon = i_Weapon;
+    }
+
     private void Awake()
     {
         m_Rigidbody = GetComponent<Rigidbody2D>();

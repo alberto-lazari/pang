@@ -17,6 +17,7 @@ public class PlayerCollisionHandler : MonoBehaviour
     private int m_BubbleLayer;
     private int m_StageLayer;
 
+
     public void SetShield(Shield i_Shield)
     {
         if (m_Shield == null) m_Shield = i_Shield;

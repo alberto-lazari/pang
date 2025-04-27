@@ -1,37 +1,28 @@
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour
 {
-    [SerializeField] private GameObject m_Player;
     [SerializeField] private ShootFlash m_ShootFlash;
 
-    private float? m_PlayerHeight;
+    protected abstract void OnShoot();
 
-    protected virtual void Awake()
+    public void Shoot()
     {
-        if (m_Player == null) m_Player = transform.parent.gameObject;
-        if (m_ShootFlash == null) Debug.LogError("Weapon holder not assigned");
-
-        m_PlayerHeight = m_Player.GetComponent<SpriteRenderer>()
-            ?.bounds.size.y;
-        if (m_PlayerHeight == null)
+        OnShoot();
+        if (m_ShootFlash != null)
         {
-            Debug.LogError("Weapon needs a player with a sprite renderer");
-            return;
+            // Show shoot flash
+            Instantiate(
+                m_ShootFlash,
+                transform.position,
+                m_ShootFlash.transform.rotation,
+                transform.parent.parent
+            ).OnShoot();
         }
     }
 
-    public virtual void Shoot()
+    protected virtual void Awake()
     {
-        if (m_ShootFlash == null || m_PlayerHeight is not float playerHeight) return;
-
-        // Place weapon and flash above player
-        Vector3 weaponPosition = m_Player.transform.position
-            + Vector3.up * playerHeight;
-        transform.position = weaponPosition;
-        m_ShootFlash.transform.position = weaponPosition;
-
-        // Show shoot flash
-        m_ShootFlash.OnShoot();
+        if (m_ShootFlash == null) Debug.LogError("Shoot flash is not assigned");
     }
 }

@@ -6,11 +6,12 @@ public class Shield : Item
 
     private Animator m_Animator;
 
-    protected override void OnGrab()
+    protected override void OnGrab(GameObject i_Player)
     {
-        m_Player.SetShield(this);
-        transform.parent = m_Player.transform;
-        transform.position = m_Player.transform.position;
+        i_Player.GetComponent<PlayerCollisionHandler>()
+            .SetShield(this);
+        transform.parent = i_Player.transform;
+        transform.position = i_Player.transform.position;
         m_Rigidbody.simulated = false;
         m_Animator.SetBool(IsActiveHash, true);
     }

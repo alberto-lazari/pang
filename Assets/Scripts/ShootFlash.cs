@@ -16,4 +16,9 @@ public class ShootFlash : MonoBehaviour
         // Trigger shoot flash animation
         m_Animator.SetTrigger(ShootTriggerHash);
     }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
 }
