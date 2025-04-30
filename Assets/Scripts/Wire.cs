@@ -34,7 +34,8 @@ public class Wire : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D i_Collider)
     {
-        Destroy();
+        if (!i_Collider.gameObject.CompareTag("Ladder"))
+            Destroy();
     }
 
     private void Destroy()
