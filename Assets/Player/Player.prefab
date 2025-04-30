@@ -105,8 +105,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RunningSpeed: 1.5
-  m_ClimbingSpeed: 0.8
-  m_LadderTriggerDistance: 0.1
+  m_ClimbingSpeed: 0.9
+  m_LadderTriggerDistance: 0.05
   m_Weapon: {fileID: 0}
 --- !u!114 &8623820277753638800
 MonoBehaviour:

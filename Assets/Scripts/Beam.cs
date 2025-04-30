@@ -8,7 +8,6 @@ public class Beam : MonoBehaviour
 
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
-
     private int m_BubbleLayer;
 
 
@@ -23,7 +22,6 @@ public class Beam : MonoBehaviour
     {
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
-
         m_BubbleLayer = LayerMask.NameToLayer("Bubble");
     }
 

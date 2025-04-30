@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
     public void SetWeapon(Weapon i_Weapon)
     {
-        if (m_Weapon != null) Destroy(m_Weapon);
+        if (m_Weapon != null && m_Weapon != i_Weapon) m_Weapon.Destroy();
         m_Weapon = i_Weapon;
     }
 
@@ -163,7 +163,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnShoot()
     {
-        if (m_Weapon == null) return;
+        if (m_Weapon == null || !m_Weapon.CanShoot()) return;
 
         // Wait shoot animation to end before shooting again
         if (IsState(ShootingHash)) return;

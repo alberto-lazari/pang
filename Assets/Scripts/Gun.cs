@@ -4,11 +4,16 @@ public class Gun : Weapon
 {
     [SerializeField] private Beam m_Beam;
 
+    public override bool CanShoot()
+    {
+        return true;
+    }
+
     protected override void OnShoot()
     {
         if (m_Beam == null) return;
 
-        // The gun is a child of player
+        // The weapon is a child of player
         Transform gameArea = transform.parent.parent;
 
         // Create a new beam in the game area
