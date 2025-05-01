@@ -9,11 +9,12 @@ public class Game : MonoBehaviour
     public static Game State { get; private set; }
 
     [SerializeField] private int m_StageNumber;
-    [SerializeField] private int m_Score = 0;
     [SerializeField] private HashSet<BouncingBubble> m_ActiveBubbles;
 
     [SerializeField] private float m_LootChance = 0.5f;
     [SerializeField] private List<Item> m_LootItems = new();
+
+    private GameScore m_GameScore;
 
     private void Awake()
     {
@@ -32,6 +33,15 @@ public class Game : MonoBehaviour
         m_ActiveBubbles = new HashSet<BouncingBubble>(
             FindObjectsByType<BouncingBubble>(FindObjectsSortMode.None)
         );
+
+        // Keep reference to game score instance
+        m_GameScore = GameScore.Instance;
+        if (m_GameScore == null)
+        {
+            // Create the game score root object
+            GameObject gameScoreObject = new GameObject("GameScore");
+            m_GameScore = gameScoreObject.AddComponent<GameScore>();
+        }
     }
 
     private void Update()
@@ -39,7 +49,7 @@ public class Game : MonoBehaviour
         if (m_ActiveBubbles.Count == 0) NextLevel();
     }
 
-    public void AddScore(int i_Points) => m_Score += i_Points;
+    public void AddScore(int i_Points) => m_GameScore.points += i_Points;
     public void RegisterBubble(BouncingBubble i_Bubble) => m_ActiveBubbles.Add(i_Bubble);
     public void DeregisterBubble(BouncingBubble i_Bubble) => m_ActiveBubbles.Remove(i_Bubble);
 
@@ -62,5 +72,24 @@ public class Game : MonoBehaviour
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
             SceneManager.LoadScene(nextSceneIndex);
         else Debug.Log("You won!");
+    }
+
+
+    private class GameScore : MonoBehaviour
+    {
+        public static GameScore Instance { get; private set; }
+
+        public int points = 0;
+
+        private void Awake()
+        {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }

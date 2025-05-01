@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a51445385789e4eb589b3a87f1eaa4a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
+  m_StageNumber: 3
   m_LootChance: 0.5
   m_LootItems:
   - {fileID: 2104791229259957670, guid: f969569797b3647e598d45ea4d13656a, type: 3}
