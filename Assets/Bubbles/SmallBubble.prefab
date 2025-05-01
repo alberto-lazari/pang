@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SmallerBall: {fileID: 2538254891908424610, guid: 2e42bfba137d24564821799e3a70457d, type: 3}
+  m_ExplodePoints: 150
   m_BounceMultiplier: 0.5
   m_MaxBounce: 2
   m_HorizontalVelocity: 0.6

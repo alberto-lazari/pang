@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
             if (contact.normal.y > 0f)
             {
                 if (contactY == null) contactY = contact.point.y;
-                if (i_Collision.gameObject.tag == "Ladder") m_LadderStatus = LadderStatus.Top;
+                if (i_Collision.gameObject.CompareTag("Ladder")) m_LadderStatus = LadderStatus.Top;
 
                 // Stop climbing
                 m_Rigidbody.linearVelocityY = 0f;

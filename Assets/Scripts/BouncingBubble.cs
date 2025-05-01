@@ -5,6 +5,7 @@ public class BouncingBubble : MonoBehaviour
     private static readonly int ExplodingTriggerHash = Animator.StringToHash("Exploding");
 
     [SerializeField] private GameObject m_SmallerBall;
+    [SerializeField] private int m_ExplodePoints;
 
     [SerializeField] private float m_BounceMultiplier;
     [SerializeField] private float m_MaxBounce = 2f;
@@ -91,6 +92,11 @@ public class BouncingBubble : MonoBehaviour
 
     private void OnExploded()
     {
+        Game.State.AddScore(m_ExplodePoints);
+
+        // Try spawning loot
+        Game.State.TryLootDrop(transform.position);
+
         // Destroy the current ball on animation end
         Destroy(gameObject);
     }

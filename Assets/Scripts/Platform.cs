@@ -4,6 +4,7 @@ public class Platform : MonoBehaviour
 {
     private static readonly int BreakTriggerHash = Animator.StringToHash("Break");
 
+    [SerializeField] private int m_BreakPoints = 50;
     private Animator m_Animator;
 
     private void Awake()
@@ -19,6 +20,7 @@ public class Platform : MonoBehaviour
 
     private void Destroy()
     {
+        Game.State.AddScore(m_BreakPoints);
         Destroy(gameObject);
     }
 }
