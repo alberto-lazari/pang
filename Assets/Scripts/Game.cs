@@ -44,14 +44,17 @@ public class Game : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (m_ActiveBubbles.Count == 0) NextLevel();
-    }
-
     public void AddScore(int i_Points) => m_GameScore.points += i_Points;
+
     public void RegisterBubble(BouncingBubble i_Bubble) => m_ActiveBubbles.Add(i_Bubble);
-    public void DeregisterBubble(BouncingBubble i_Bubble) => m_ActiveBubbles.Remove(i_Bubble);
+
+    public void DeregisterBubble(BouncingBubble i_Bubble)
+    {
+        m_ActiveBubbles.Remove(i_Bubble);
+
+        // Check if stage is beaten
+        if (m_ActiveBubbles.Count == 0) NextStage();
+    }
 
     public void TryLootDrop(Vector3 i_InitialPosition)
     {
@@ -63,11 +66,14 @@ public class Game : MonoBehaviour
     }
 
 
-    private void NextLevel()
+    private void NextStage() => StartCoroutine(LoadNextStage());
+    private IEnumerator<WaitForSeconds> LoadNextStage()
     {
+        yield return new WaitForSeconds(1.5f);
+
         // Load the next scene by index or name
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        
+
         // Check if the next scene exists
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
             SceneManager.LoadScene(nextSceneIndex);
