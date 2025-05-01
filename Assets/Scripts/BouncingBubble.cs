@@ -72,8 +72,7 @@ public class BouncingBubble : MonoBehaviour
 
     private void Explode()
     {
-        m_Rigidbody.bodyType = RigidbodyType2D.Kinematic;
-        m_Rigidbody.linearVelocity = Vector2.zero;
+        m_Rigidbody.simulated = false;
 
         // Move to front to show the explosion
         m_Renderer.sortingOrder = int.MinValue;
@@ -88,9 +87,6 @@ public class BouncingBubble : MonoBehaviour
             SpawnSmallerClone(m_HorizontalVelocity);
             SpawnSmallerClone(-m_HorizontalVelocity);
         }
-
-        // Prevent repeating the explosion for the same object
-        m_Collider.enabled = false;
     }
 
     private void OnExploded()
