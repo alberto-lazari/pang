@@ -15,12 +15,14 @@ public class Platform : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D i_Collider)
     {
         if (i_Collider.gameObject.CompareTag("HarpoonWire"))
+        {
             m_Animator.SetTrigger(BreakTriggerHash);
+            Game.State.AddScore(m_BreakPoints);
+        }
     }
 
     private void Destroy()
     {
-        Game.State.AddScore(m_BreakPoints);
         Destroy(gameObject);
     }
 }

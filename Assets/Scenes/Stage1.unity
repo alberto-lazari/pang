@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 189017872}
+  - component: {fileID: 189017873}
   m_Layer: 0
   m_Name: GameArea
   m_TagString: Untagged
@@ -153,6 +154,24 @@ Transform:
   - {fileID: 412227659}
   m_Father: {fileID: 2023339741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &189017873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189017871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a51445385789e4eb589b3a87f1eaa4a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  m_LootChance: 0.5
+  m_LootItems:
+  - {fileID: 2104791229259957670, guid: f969569797b3647e598d45ea4d13656a, type: 3}
+  - {fileID: 3552330454186217047, guid: c371ceba0f21640c09474e06d0447461, type: 3}
+  - {fileID: -3580228059530700853, guid: 280eec4b5def34a0e9e458fd6cd2f021, type: 3}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0

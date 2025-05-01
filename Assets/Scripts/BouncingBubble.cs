@@ -4,7 +4,7 @@ public class BouncingBubble : MonoBehaviour
 {
     private static readonly int ExplodingTriggerHash = Animator.StringToHash("Exploding");
 
-    [SerializeField] private GameObject m_SmallerBall;
+    [SerializeField] private BouncingBubble m_SmallerBubble;
     [SerializeField] private int m_ExplodePoints;
 
     [SerializeField] private float m_BounceMultiplier;
@@ -81,34 +81,40 @@ public class BouncingBubble : MonoBehaviour
         // Trigger explosion animation
         m_Animator.SetTrigger(ExplodingTriggerHash);
 
-        // Spawn children only if not the smallest ball type
-        if (m_SmallerBall != null)
+        bool bIsTiny = m_SmallerBubble == null;
+        Game state = Game.State;
+
+        // Spawn children only if not the smallest bubble type
+        if (!bIsTiny)
         {
-            // Split the current ball in two smaller ones
-            SpawnSmallerClone(m_HorizontalVelocity);
-            SpawnSmallerClone(-m_HorizontalVelocity);
+            // Split the current bubble in two smaller ones
+            state.RegisterBubble(SpawnSmallerClone(m_HorizontalVelocity));
+            state.RegisterBubble(SpawnSmallerClone(-m_HorizontalVelocity));
+
+            // Try spawning loot
+            state.TryLootDrop(transform.position);
         }
+
+        // Update global state
+        state.DeregisterBubble(this);
+        state.AddScore(m_ExplodePoints);
     }
 
     private void OnExploded()
     {
-        Game.State.AddScore(m_ExplodePoints);
-
-        // Try spawning loot
-        Game.State.TryLootDrop(transform.position);
-
-        // Destroy the current ball on animation end
+        // Destroy the current bubble on animation end
         Destroy(gameObject);
     }
 
-    private void SpawnSmallerClone(float i_HorizontalVelocity)
+    private BouncingBubble SpawnSmallerClone(float i_HorizontalVelocity)
     {
-        GameObject ball = Instantiate<GameObject>(m_SmallerBall, transform.parent);
-        ball.transform.position = transform.position;
-        ball.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(
+        GameObject bubble = Instantiate(m_SmallerBubble.gameObject, transform.parent);
+        bubble.transform.position = transform.position;
+        bubble.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(
             i_HorizontalVelocity,
             m_PopVerticalVelocity
         );
+        return bubble.GetComponent<BouncingBubble>();
     }
 
     private void FixVelocities(Collision2D i_Collision)

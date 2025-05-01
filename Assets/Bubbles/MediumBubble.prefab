@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 729ae6d73671c484eb4b103d48023f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SmallerBall: {fileID: 2538254891908424610, guid: 41a1ee67975dc465794a365ae501cf69, type: 3}
+  m_SmallerBubble: {fileID: -8785362179553788449, guid: 41a1ee67975dc465794a365ae501cf69, type: 3}
   m_ExplodePoints: 100
   m_BounceMultiplier: 0.75
   m_MaxBounce: 2

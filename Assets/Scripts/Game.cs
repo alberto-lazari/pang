@@ -1,13 +1,18 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 using System.Collections.Generic;
 
 public class Game : MonoBehaviour
 {
-    // Access as lazy singleton
+    // Access as singleton
     public static Game State { get; private set; }
 
-    [SerializeField] private int score = 0;
-    [SerializeField] private float m_LootChance = 0.25f;
+    [SerializeField] private int m_StageNumber;
+    [SerializeField] private int m_Score = 0;
+    [SerializeField] private HashSet<BouncingBubble> m_ActiveBubbles;
+
+    [SerializeField] private float m_LootChance = 0.5f;
     [SerializeField] private List<Item> m_LootItems = new();
 
     private void Awake()
@@ -19,13 +24,24 @@ public class Game : MonoBehaviour
             return;
         }
         State = this;
-        DontDestroyOnLoad(gameObject);
+
+        // Get current stage number
+        m_StageNumber = SceneManager.GetActiveScene().buildIndex + 1;
+
+        // Initialize bubbles cache
+        m_ActiveBubbles = new HashSet<BouncingBubble>(
+            FindObjectsByType<BouncingBubble>(FindObjectsSortMode.None)
+        );
     }
 
-    public void AddScore(int i_Points)
+    private void Update()
     {
-        score += i_Points;
+        if (m_ActiveBubbles.Count == 0) NextLevel();
     }
+
+    public void AddScore(int i_Points) => m_Score += i_Points;
+    public void RegisterBubble(BouncingBubble i_Bubble) => m_ActiveBubbles.Add(i_Bubble);
+    public void DeregisterBubble(BouncingBubble i_Bubble) => m_ActiveBubbles.Remove(i_Bubble);
 
     public void TryLootDrop(Vector3 i_InitialPosition)
     {
@@ -34,5 +50,17 @@ public class Game : MonoBehaviour
         int index = Random.Range(0, m_LootItems.Count);
         GameObject loot = m_LootItems[index].gameObject;
         Instantiate(loot, i_InitialPosition, loot.transform.rotation, transform);
+    }
+
+
+    private void NextLevel()
+    {
+        // Load the next scene by index or name
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        
+        // Check if the next scene exists
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+            SceneManager.LoadScene(nextSceneIndex);
+        else Debug.Log("You won!");
     }
 }
