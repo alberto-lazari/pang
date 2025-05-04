@@ -75,18 +75,24 @@ public class Game : MonoBehaviour
     }
 
 
-    private void NextStage() => StartCoroutine(LoadNextStage());
-    private IEnumerator<WaitForSeconds> LoadNextStage()
+    private void NextStage()
     {
-        yield return new WaitForSeconds(1.5f);
-
-        // Load the next scene by index or name
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
         // Check if the next scene exists
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-            SceneManager.LoadScene(nextSceneIndex);
-        else Debug.Log("You won!");
+        {
+            GameUI.Instance.SetStageText($"Stage {m_StageNumber} cleared!");
+            StartCoroutine(LoadStage(nextSceneIndex));
+        }
+        // The current scene was the last one
+        else GameUI.Instance.SetStageText("You won!");
+    }
+    private IEnumerator<WaitForSeconds> LoadStage(int i_Index)
+    {
+        // Let the player take a breath before the next stage
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(i_Index);
     }
 
 
