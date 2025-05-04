@@ -7,7 +7,7 @@ public abstract class Item : MonoBehaviour
 
     protected Rigidbody2D m_Rigidbody;
 
-    public abstract void OnGrab(GameObject i_Player);
+    public abstract void OnPick(GameObject i_Player);
 
     protected virtual void Awake()
     {
@@ -20,7 +20,7 @@ public abstract class Item : MonoBehaviour
     {
         GameObject obj = i_Collision.gameObject;
         if (obj.CompareTag("Player") && !transform.parent.gameObject.CompareTag("Player"))
-            OnGrab(obj);
+            OnPick(obj);
     }
 
     private void OnCollisionExit2D(Collision2D i_Collision)

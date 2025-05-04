@@ -6,7 +6,7 @@ public class Shield : Item
 
     private Animator m_Animator;
 
-    public override void OnGrab(GameObject i_Player)
+    public override void OnPick(GameObject i_Player)
     {
         i_Player.GetComponent<PlayerCollisionHandler>()
             .SetShield(this);

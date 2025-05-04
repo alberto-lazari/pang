@@ -2,12 +2,14 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
+    public static event System.Action<Weapon> OnWeaponPicked;
+
     [SerializeField] private ShootFlash m_ShootFlash;
 
     public abstract bool CanShoot();
     protected abstract void OnShoot();
 
-    public virtual void OnGrab(GameObject i_Player)
+    public virtual void OnPick(GameObject i_Player)
     {
         if (transform.parent != i_Player.transform)
         {
@@ -56,9 +58,9 @@ public abstract class Weapon : MonoBehaviour
         {
             GameObject player = parent.gameObject;
             WeaponItem item = GetComponent<WeaponItem>();
-            // Call item's OnGrab if the weapon has the component
-            if (item != null) item.OnGrab(player);
-            else OnGrab(player);
+            // Call item's OnPick if the weapon has the component
+            if (item != null) item.OnPick(player);
+            else OnPick(player);
         }
     }
 }

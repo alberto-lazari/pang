@@ -14,9 +14,9 @@ public class Harpoon : Weapon
         m_Wires.Enqueue(i_Wire);
     }
 
-    public override void OnGrab(GameObject i_Player)
+    public override void OnPick(GameObject i_Player)
     {
-        base.OnGrab(i_Player);
+        base.OnPick(i_Player);
 
         // Instantiate wires
         Transform gameArea = i_Player.transform.parent;
