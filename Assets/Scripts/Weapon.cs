@@ -3,6 +3,7 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
     public static event System.Action<Weapon> OnWeaponPicked;
+    public Sprite icon;
 
     [SerializeField] private ShootFlash m_ShootFlash;
 

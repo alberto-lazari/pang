@@ -12,6 +12,6 @@ public class ShootButton : MonoBehaviour
 
     private void UpdateButtonIcon(Weapon i_Weapon)
     {
-        m_SpriteRenderer.sprite = i_Weapon.GetComponent<SpriteRenderer>().sprite;
+        m_SpriteRenderer.sprite = i_Weapon.icon;
     }
 }
