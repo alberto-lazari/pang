@@ -37,14 +37,15 @@ Below I list the most relevant topics I worked on this project:
   They seem too much "exploitable", allowing a wide variety of use-cases. \
   The line between trigger and collision is sometimes slightly blurred.
   Also, I couldn't find an elegant pattern to manage layer filtering.
-- Player controller: this was way harder than I expected.
+- Player controller: this was much harder than expected.
   The final result is a mess and the part I'm least proud of. \
-  Handling climbing movement and the Y axis in general was a real pain and there are still strange bugs hanging around
+  Handling climbing movement and Y-axis positioning in general was a real pain,
+  and there are still strange bugs hanging around
   (mostly concerning ladders).
 - UI
 - Input, using the new Input System
 - Global game state: I'm not sure how much I'm supposed to use singletons and global state in general.
-  I found out about events later on during development and realized they are a much better solution.
+  I found out about events later in the project and realized they are a much simpler and elegant solution.
   OOP feels very limited in Unity's game object model.
 
 
