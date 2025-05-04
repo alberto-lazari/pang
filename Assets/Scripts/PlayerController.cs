@@ -10,9 +10,10 @@ public class PlayerController : MonoBehaviour
     private static readonly int ClimbingHash = Animator.StringToHash("Climbing");
     private static readonly int TopOutHash = Animator.StringToHash("TopOut");
 
+    public static event System.Action<bool> OnNearLadder;
+
     [SerializeField] private float m_RunningSpeed = 1.5f;
     [SerializeField] private float m_ClimbingSpeed = 0.9f;
-    [SerializeField] private float m_LadderTriggerDistance = 0.05f;
 
     [SerializeField] private Weapon m_Weapon;
     private Rigidbody2D m_Rigidbody;
@@ -74,30 +75,20 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D i_Collider)
     {
-        if (i_Collider.gameObject.tag != "Ladder") return;
+        if (!i_Collider.gameObject.CompareTag("Ladder")) return;
 
         if (m_LadderStatus != LadderStatus.Top) m_LadderStatus = LadderStatus.Bottom;
 
+        m_LadderX = i_Collider.transform.position.x;
         m_LadderTopY = i_Collider.transform.position.y
             + i_Collider.GetComponent<SpriteRenderer>().bounds.size.y;
-    }
 
-    private void OnTriggerStay2D(Collider2D i_Collider)
-    {
-        if (i_Collider.gameObject.tag != "Ladder") return;
-
-        if (m_LadderX == null)
-        {
-            float ladderX = i_Collider.transform.position.x;
-            m_LadderX = Mathf.Abs(ladderX - transform.position.x) < m_LadderTriggerDistance
-                ? ladderX
-                : null;
-        }
+        OnNearLadder?.Invoke(true);
     }
 
     private void OnTriggerExit2D(Collider2D i_Collider)
     {
-        if (i_Collider.gameObject.tag != "Ladder") return;
+        if (!i_Collider.gameObject.CompareTag("Ladder")) return;
 
         m_LadderX = null;
         m_LadderTopY = null;
@@ -106,6 +97,8 @@ public class PlayerController : MonoBehaviour
         m_Animator.SetBool(IsClimbingHash, false);
         m_Rigidbody.linearVelocityY = 0f;
         m_Rigidbody.bodyType = RigidbodyType2D.Dynamic;
+
+        OnNearLadder?.Invoke(false);
     }
 
     private void OnCollisionEnter2D(Collision2D i_Collision)
