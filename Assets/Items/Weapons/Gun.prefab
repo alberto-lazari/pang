@@ -189,5 +189,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db83a926377324804bf24abb3bec70be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 512dfb519f480444f90e7369f89cd61d, type: 3}
   m_ShootFlash: {fileID: 6271763185098524727, guid: 19039dfb0309c4778886a2097481e23f, type: 3}
   m_Beam: {fileID: 940723777566215703, guid: 986fcb229972043f6a17612338843f76, type: 3}

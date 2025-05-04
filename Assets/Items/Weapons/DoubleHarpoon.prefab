@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d356cd67108e4468ab3ea000c2ebaa28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 4f93d2feda376491ea7d004aa0349b15, type: 3}
   m_ShootFlash: {fileID: 6271763185098524727, guid: 19039dfb0309c4778886a2097481e23f, type: 3}
   m_WiresNumber: 2
   m_Wire: {fileID: 3671223761041194410, guid: 1bf646d16a77c43b690136140c93e10f, type: 3}

@@ -5,13 +5,13 @@ public class WeaponItem : Item
     private Weapon m_Weapon;
     private SpriteRenderer m_SpriteRenderer;
 
-    public override void OnGrab(GameObject i_Player)
+    public override void OnPick(GameObject i_Player)
     {
         // Disable the weapon item
         m_Rigidbody.simulated = false;
-        m_SpriteRenderer.sprite = null;
+        m_SpriteRenderer.enabled = false;
 
-        m_Weapon.OnGrab(i_Player);
+        m_Weapon.OnPick(i_Player);
     }
 
     protected override void Awake()
