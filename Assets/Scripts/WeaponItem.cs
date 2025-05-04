@@ -9,7 +9,7 @@ public class WeaponItem : Item
     {
         // Disable the weapon item
         m_Rigidbody.simulated = false;
-        m_SpriteRenderer.sprite = null;
+        m_SpriteRenderer.enabled = false;
 
         m_Weapon.OnPick(i_Player);
     }
