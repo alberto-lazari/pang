@@ -44,7 +44,10 @@ public class Game : MonoBehaviour
         }
     }
 
-    public void AddScore(int i_Points) => m_GameScore.points += i_Points;
+    public void AddScore(int i_Points)
+    {
+        m_GameScore.points += i_Points;
+    }
 
     public void RegisterBubble(BouncingBubble i_Bubble) => m_ActiveBubbles.Add(i_Bubble);
 
