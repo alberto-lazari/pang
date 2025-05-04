@@ -23,7 +23,7 @@ public abstract class Weapon : MonoBehaviour
             .bounds.size.y;
         transform.position = i_Player.transform.position + Vector3.up * playerHeight;
 
-        OnWeaponPicked.Invoke(this);
+        OnWeaponPicked?.Invoke(this);
     }
 
     public virtual void Destroy()
