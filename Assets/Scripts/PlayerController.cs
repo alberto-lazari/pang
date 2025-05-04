@@ -86,7 +86,8 @@ public class PlayerController : MonoBehaviour
     {
         if (i_Collider.gameObject.tag != "Ladder") return;
 
-        if (m_LadderX == null) {
+        if (m_LadderX == null)
+        {
             float ladderX = i_Collider.transform.position.x;
             m_LadderX = Mathf.Abs(ladderX - transform.position.x) < m_LadderTriggerDistance
                 ? ladderX

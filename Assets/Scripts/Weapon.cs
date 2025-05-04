@@ -22,9 +22,12 @@ public abstract class Weapon : MonoBehaviour
         float playerHeight = i_Player.GetComponent<SpriteRenderer>()
             .bounds.size.y;
         transform.position = i_Player.transform.position + Vector3.up * playerHeight;
+
+        OnWeaponPicked.Invoke(this);
     }
 
-    public virtual void Destroy() {
+    public virtual void Destroy()
+    {
         Destroy(gameObject);
     }
 
