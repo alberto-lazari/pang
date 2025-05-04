@@ -5,13 +5,13 @@ A clone of a simple 2D arcade shooter, made in Unity.
 Developed as a homework for the Mobile course of the Master in Computer Game Development.
 
 It features almost every basic game development element
-(player controller, animations, collisions, items, game state, UI, ...).
+(player controller, animations, collisions, items, game state, UI).
 
 
 ## Aim of the Project
 
 Learn the basics of Unity development by replicating the game [Pang](https://en.wikipedia.org/wiki/Buster_Bros.). \
-As a simple 2D arcade game, it was a simple--yet complete--example,
+As a simple 2D arcade game, it was a simple–yet complete–example,
 requiring the implementation of various details, spanning almost the entire essential Unity toolset.
 
 Being a mobile course, the project had to be developed with a mobile-first strategy in mind,
