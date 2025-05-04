@@ -1,7 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-using System.Collections.Generic;
 
 public class Game : MonoBehaviour
 {
@@ -44,9 +43,16 @@ public class Game : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        GameUI.Instance.UpdateStage(m_StageNumber);
+        GameUI.Instance.UpdateScore(m_GameScore.points);
+    }
+
     public void AddScore(int i_Points)
     {
         m_GameScore.points += i_Points;
+        GameUI.Instance.UpdateScore(m_GameScore.points);
     }
 
     public void RegisterBubble(BouncingBubble i_Bubble) => m_ActiveBubbles.Add(i_Bubble);

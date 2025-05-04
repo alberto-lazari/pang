@@ -53,6 +53,8 @@ MonoBehaviour:
   - {fileID: 2104791229259957670, guid: f969569797b3647e598d45ea4d13656a, type: 3}
   - {fileID: 2104791229259957670, guid: da028b25f20c74d1d82e688406b42ee7, type: 3}
   - {fileID: -3580228059530700853, guid: 280eec4b5def34a0e9e458fd6cd2f021, type: 3}
+  m_StageText: {fileID: 7683256961070512946, guid: f03e7457055bd4e999be49c47bf512a2, type: 3}
+  m_ScoreText: {fileID: 4928885502588397540, guid: 8fd767f05aa3649839a6775c2d33ff86, type: 3}
 --- !u!1 &9154760696761699167
 GameObject:
   m_ObjectHideFlags: 0

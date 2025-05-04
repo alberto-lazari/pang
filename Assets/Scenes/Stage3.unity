@@ -331,6 +331,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8680103029202270364, guid: ab81057acdd094c4cb213dac8b4b6fb5, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -347,10 +351,6 @@ PrefabInstance:
     - target: {fileID: 3593747009257203138, guid: 1e4607737a3e249b98a0a49d1f787494, type: 3}
       propertyPath: m_Name
       value: BigBubble 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3667407935707168721, guid: 1e4607737a3e249b98a0a49d1f787494, type: 3}
-      propertyPath: m_StageNumber
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3667407935707168721, guid: 1e4607737a3e249b98a0a49d1f787494, type: 3}
       propertyPath: 'm_LootItems.Array.data[3]'
@@ -409,6 +409,9 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2808160536637964672, guid: 1e4607737a3e249b98a0a49d1f787494, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1205917847}
+    - targetCorrespondingSourceObject: {fileID: 2808160536637964672, guid: 1e4607737a3e249b98a0a49d1f787494, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 758062301}
     - targetCorrespondingSourceObject: {fileID: 2808160536637964672, guid: 1e4607737a3e249b98a0a49d1f787494, type: 3}
       insertIndex: -1
@@ -416,9 +419,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2808160536637964672, guid: 1e4607737a3e249b98a0a49d1f787494, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2091507734}
-    - targetCorrespondingSourceObject: {fileID: 2808160536637964672, guid: 1e4607737a3e249b98a0a49d1f787494, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1205917847}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e4607737a3e249b98a0a49d1f787494, type: 3}
 --- !u!4 &1959333115 stripped

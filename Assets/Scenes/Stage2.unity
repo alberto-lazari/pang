@@ -128,10 +128,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3667407935707168721, guid: 1e4607737a3e249b98a0a49d1f787494, type: 3}
-      propertyPath: m_StageNumber
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3667407935707168721, guid: 1e4607737a3e249b98a0a49d1f787494, type: 3}
       propertyPath: m_LootItems.Array.size
       value: 3
       objectReference: {fileID: 0}

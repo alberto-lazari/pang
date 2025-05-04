@@ -15,6 +15,8 @@ public class ShootButton : MonoBehaviour
 
     private void UpdateButtonIcon(Weapon i_Weapon)
     {
+        if (m_SpriteRenderer == null) return;
+
         m_Button.interactable = true;
         m_SpriteRenderer.sprite = i_Weapon.icon;
     }
