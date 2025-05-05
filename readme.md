@@ -1,5 +1,7 @@
 # Pang Clone
 
+**Try it on [itch.io](https://alberto-lazari.itch.io/pang) from your browser!**
+
 A clone of a simple 2D arcade shooter, made in Unity.
 
 Developed as a homework for the Mobile course of the Master in Computer Game Development.
