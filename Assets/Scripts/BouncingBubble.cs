@@ -6,6 +6,7 @@ public class BouncingBubble : MonoBehaviour
 
     [SerializeField] private BouncingBubble m_SmallerBubble;
     [SerializeField] private int m_ExplodePoints;
+    [SerializeField] private AudioClip m_PopAudio;
 
     [SerializeField] private float m_BounceMultiplier;
     [SerializeField] private float m_MaxBounce = 2f;
@@ -17,6 +18,7 @@ public class BouncingBubble : MonoBehaviour
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private SpriteRenderer m_Renderer;
+    private AudioSource m_AudioSource;
 
     private int m_ProjectileLayer;
 
@@ -26,6 +28,7 @@ public class BouncingBubble : MonoBehaviour
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
         m_Renderer = GetComponent<SpriteRenderer>();
+        m_AudioSource = GetComponent<AudioSource>();
 
         m_Rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         m_Rigidbody.linearVelocityX = m_HorizontalVelocity;
@@ -80,6 +83,7 @@ public class BouncingBubble : MonoBehaviour
 
         // Trigger explosion animation
         m_Animator.SetTrigger(ExplodingTriggerHash);
+        m_AudioSource.PlayOneShot(m_PopAudio);
 
         bool bIsTiny = m_SmallerBubble == null;
         Game state = Game.State;

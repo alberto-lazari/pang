@@ -57,3 +57,4 @@ Below I list the most relevant topics I worked on this project:
 - Font: [Departure Mono](https://departuremono.com)
 - Up/Down buttons icon: [Up](https://www.flaticon.com/free-icon/up_12547950)
   by Disha Vaghasiya on Flaticon
+- Bubble pop sound: Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=91931">freesound_community</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=91931">Pixabay</a>
