@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
 
         m_LadderX = null;
         m_LadderTopY = null;
-        m_LadderStatus = LadderStatus.Away;
+        if (m_LadderStatus != LadderStatus.Top) m_LadderStatus = LadderStatus.Away;
 
         m_Animator.SetBool(IsClimbingHash, false);
         m_Rigidbody.linearVelocityY = 0f;
@@ -112,7 +112,8 @@ public class PlayerController : MonoBehaviour
             if (contact.normal.y > 0f)
             {
                 if (contactY == null) contactY = contact.point.y;
-                if (i_Collision.gameObject.CompareTag("Ladder")) m_LadderStatus = LadderStatus.Top;
+                if (i_Collision.gameObject.CompareTag("Ladder"))
+                    m_LadderStatus = LadderStatus.Top;
 
                 // Stop climbing
                 m_Rigidbody.linearVelocityY = 0f;
@@ -152,6 +153,11 @@ public class PlayerController : MonoBehaviour
             //  0 -> not colliding with any wall
             if (Mathf.Abs(normal) > 0.5f) m_TouchingWallDirection = -Mathf.Sign(normal);
         }
+    }
+
+    private void OnCollisionExit2D(Collision2D i_Collision)
+    {
+        if (i_Collision.gameObject.CompareTag("Ladder")) m_LadderStatus = LadderStatus.Away;
     }
 
 
