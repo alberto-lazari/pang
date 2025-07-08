@@ -66,7 +66,7 @@ public class Game : MonoBehaviour
     public void QuitGame()
     {
 #if UNITY_EDITOR
-        Debug.Log("Quit does not work in Editor");
+        UnityEditor.EditorApplication.isPlaying = false;
 #endif
         Application.Quit();
     }
