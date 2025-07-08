@@ -23,6 +23,34 @@ An emulated web version of the game is available
 [here](https://www.miniplay.com/game/pang) for a comparison with the original game.
 
 
+## Playable Builds
+
+The game can be played from the browser from the [itch.io](https://alberto-lazari.itch.io/pang) page.
+Otherwise it's available there for download as an Android application too.
+
+
+## Project Structure
+
+The game is made up of three levels (called stages) and each has its own scene in Unity.
+The startup scene though is [`MainMenu`](Assets/Scenes/MainMenu.unity),
+which is used to start a new game for the first time, or after a Game Over (both win or lose).
+
+
+## Controls
+
+The game can be played with keyboard or gamepad,
+as well as with touch controls designed for mobile devices.
+
+### Keyboard and Gamepad
+- **Move left/right and climb**: Arrows/Left stick/D-Pad
+- **Shoot**: S/Space/Left gamepad button
+
+### Touch controls
+- **Move left/right**: touch areas on the screen
+- **Shoot**: central weapon button
+- **Climb**: up/down buttons when near ladders
+
+
 ## Technical Details
 
 While working on this project I had to learn many aspects of Unity development for the first time.
