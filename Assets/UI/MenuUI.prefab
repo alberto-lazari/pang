@@ -1361,7 +1361,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6268773554004359937}
-  - component: {fileID: 4126258764681978720}
+  - component: {fileID: 3085002222656955994}
   m_Layer: 0
   m_Name: MenuUI
   m_TagString: Untagged
@@ -1387,7 +1387,7 @@ Transform:
   - {fileID: 6130555634070108212}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4126258764681978720
+--- !u!114 &3085002222656955994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1396,9 +1396,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8661019373706608554}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7722a2067205f43a884e3fbe5ed7e7b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 42a6bddc30f1e4aa6945f59abaa01851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_StageText: {fileID: 6996187120318503852}
   m_ScoreText: {fileID: 2530621947508323065}
-  m_FirstSelectedButton: {fileID: 2341662162923211530}
+  m_PlayButton: {fileID: 2341662162923211530}
+  m_QuitButton: {fileID: 4629376308842145287}
