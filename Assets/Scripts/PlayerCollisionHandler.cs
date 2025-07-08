@@ -74,5 +74,7 @@ public class PlayerCollisionHandler : MonoBehaviour
             1f
         );
         m_Rigidbody.sharedMaterial = m_Material;
+
+        Game.State.GameOver("Game Over");
     }
 }

@@ -8,6 +8,7 @@ public class Game : MonoBehaviour
     public static Game State { get; private set; }
 
     [SerializeField] private int m_StageNumber;
+    [SerializeField] private string m_MainMenuSceneName = "MainMenu";
     [SerializeField] private HashSet<BouncingBubble> m_ActiveBubbles;
 
     [SerializeField] private float m_LootChance = 0.5f;
@@ -45,14 +46,42 @@ public class Game : MonoBehaviour
 
     private void Start()
     {
-        GameUI.Instance.UpdateStage(m_StageNumber);
+        // Don't set stage number for non-stage scenes (like main menu)
+        if (SceneManager.GetActiveScene().name.StartsWith("Stage"))
+        {
+            GameUI.Instance.UpdateStage(m_StageNumber);
+        }
         GameUI.Instance.UpdateScore(m_GameScore.points);
+    }
+
+
+    public void StartNewGame()
+    {
+        // Reset previous game score
+        UpdateScore(0);
+        SceneManager.LoadScene(0);
+    }
+
+    public void QuitGame()
+    {
+#if UNITY_EDITOR
+        Debug.Log("Quit does not work in Editor");
+#endif
+        Application.Quit();
     }
 
     public void AddScore(int i_Points)
     {
         m_GameScore.points += i_Points;
-        GameUI.Instance.UpdateScore(m_GameScore.points);
+        UpdateScore(m_GameScore.points);
+    }
+
+    public void GameOver(string i_Message)
+    {
+        GameUI.Instance.SetStageText(i_Message);
+        int index = SceneUtility.GetBuildIndexByScenePath(
+                $"Assets/Scenes/{m_MainMenuSceneName}.unity");
+        StartCoroutine(LoadStage(index));
     }
 
     public void RegisterBubble(BouncingBubble i_Bubble) => m_ActiveBubbles.Add(i_Bubble);
@@ -75,9 +104,16 @@ public class Game : MonoBehaviour
     }
 
 
+    private void UpdateScore(int i_Points)
+    {
+        m_GameScore.points = i_Points;
+        GameUI.Instance.UpdateScore(i_Points);
+    }
+
     private void NextStage()
     {
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        // Stage index = stage number - 1
+        int nextSceneIndex = m_StageNumber;
 
         // Check if the next scene exists
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
@@ -86,7 +122,7 @@ public class Game : MonoBehaviour
             StartCoroutine(LoadStage(nextSceneIndex));
         }
         // The current scene was the last one
-        else GameUI.Instance.SetStageText("You won!");
+        else GameOver("You won!");
     }
     private IEnumerator<WaitForSeconds> LoadStage(int i_Index)
     {

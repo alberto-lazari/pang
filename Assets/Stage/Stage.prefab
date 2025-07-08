@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_StageNumber: 0
+  m_MainMenuSceneName: MainMenu
   m_LootChance: 0.5
   m_LootItems:
   - {fileID: 3552330454186217047, guid: c371ceba0f21640c09474e06d0447461, type: 3}

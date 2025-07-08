@@ -189,6 +189,12 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        // Don't start climbing with little y movement
+        if (Mathf.Abs(i_Movement.x) > Mathf.Abs(i_Movement.y))
+        {
+            i_Movement.y = 0f;
+        }
+
         Run(i_Movement.x);
         Climb(i_Movement.y);
 
