@@ -8,6 +8,7 @@ public class Game : MonoBehaviour
     public static Game State { get; private set; }
 
     [SerializeField] private int m_StageNumber;
+    [SerializeField] private int m_FirstStageIndex = 1;
     [SerializeField] private string m_MainMenuSceneName = "MainMenu";
     [SerializeField] private HashSet<BouncingBubble> m_ActiveBubbles;
 
@@ -27,7 +28,7 @@ public class Game : MonoBehaviour
         State = this;
 
         // Get current stage number
-        m_StageNumber = SceneManager.GetActiveScene().buildIndex + 1;
+        m_StageNumber = SceneManager.GetActiveScene().buildIndex - m_FirstStageIndex + 1;
 
         // Initialize bubbles cache
         m_ActiveBubbles = new HashSet<BouncingBubble>(
@@ -59,7 +60,7 @@ public class Game : MonoBehaviour
     {
         // Reset previous game score
         UpdateScore(0);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(m_FirstStageIndex);
     }
 
     public void QuitGame()
@@ -112,8 +113,7 @@ public class Game : MonoBehaviour
 
     private void NextStage()
     {
-        // Stage index = stage number - 1
-        int nextSceneIndex = m_StageNumber;
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
         // Check if the next scene exists
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
